@@ -1,5 +1,5 @@
 #include "Scene_Play.h"
-
+#include "../StageObject/BackGround/bg_Stage1.h"
 Scene_Play::Scene_Play(GameObject* parent)
 	: GameObject(parent, "Scene_Play")
 {
@@ -7,6 +7,7 @@ Scene_Play::Scene_Play(GameObject* parent)
 
 void Scene_Play::Initialize()
 {
+	Instantiate<bg_Stage1>(this);
 }
 
 void Scene_Play::Update()
