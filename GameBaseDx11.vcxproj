@@ -148,7 +148,8 @@
     <ClCompile Include="Engine\Text.cpp" />
     <ClCompile Include="Engine\Texture.cpp" />
     <ClCompile Include="Engine\Transform.cpp" />
-    <ClCompile Include="TestScene.cpp" />
+    <ClCompile Include="Scene\Scene_Play.cpp" />
+    <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Audio.h" />
@@ -174,7 +175,8 @@
     <ClInclude Include="Engine\Text.h" />
     <ClInclude Include="Engine\Texture.h" />
     <ClInclude Include="Engine\Transform.h" />
-    <ClInclude Include="TestScene.h" />
+    <ClInclude Include="Scene\Scene_Play.h" />
+    <ClInclude Include="StageObject\BackGround\bg_Stage1.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">

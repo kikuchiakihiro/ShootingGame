@@ -1,13 +1,12 @@
 #pragma once
-#include "Engine/GameObject.h"
+#include "../../Engine/GameObject.h"
 
-//テストシーンを管理するクラス
-class TestScene : public GameObject
+class Scene_Play : public GameObject
 {
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）
-	TestScene(GameObject* parent);
+	Scene_Play(GameObject* parent);
 
 	//初期化
 	void Initialize() override;
@@ -21,3 +20,4 @@ public:
 	//開放
 	void Release() override;
 };
+
