@@ -150,6 +150,7 @@
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Scene\Scene_Play.cpp" />
     <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp" />
+    <ClCompile Include="StageObject\Character\Chara_Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Audio.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Scene\Scene_Play.h" />
     <ClInclude Include="StageObject\BackGround\bg_Stage1.h" />
+    <ClInclude Include="StageObject\Character\Chara_Player.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">

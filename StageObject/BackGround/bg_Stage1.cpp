@@ -13,7 +13,7 @@ bg_Stage1::~bg_Stage1()
 void bg_Stage1::Initialize()
 {
     // 画像データのロード
-    bg_Pict_ = Image::Load("bg_Stage1.png");
+    bg_Pict_ = Image::Load("bg/bg_Stage1.png");
     assert(bg_Pict_ >= 0);
 
     

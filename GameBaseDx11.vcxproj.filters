@@ -33,6 +33,9 @@
     <Filter Include="StageObject\BackGround">
       <UniqueIdentifier>{a830eaef-1bb3-450d-bfa7-9c9a1916b5d4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StageObject\Character">
+      <UniqueIdentifier>{c0dadda8-4af9-48eb-a599-a0120ea5690c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -110,6 +113,9 @@
     <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp">
       <Filter>StageObject\BackGround</Filter>
     </ClCompile>
+    <ClCompile Include="StageObject\Character\Chara_Player.cpp">
+      <Filter>StageObject\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -186,6 +192,9 @@
     </ClInclude>
     <ClInclude Include="StageObject\BackGround\bg_Stage1.h">
       <Filter>StageObject\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\Character\Chara_Player.h">
+      <Filter>StageObject\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
