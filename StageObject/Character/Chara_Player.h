@@ -38,5 +38,7 @@ public:
     // ˆÚ“®ˆ—
     void Move();
 
-    
+    void Shot();
+
+    void OnCollision(GameObject* pTarget) override;
 };

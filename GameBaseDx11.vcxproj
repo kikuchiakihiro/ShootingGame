@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\lib\x64\debug;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\include;$(ProjectDir)\effekseelib\Effekseelib\install_msvc2022_x64\include\Effekseer;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\lib\x64\debug;$(ProjectDir)\effekseelib\Effekseelib\install_msvc2022_x64\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\include;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\include;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\include;$(IncludePath)</IncludePath>
@@ -93,6 +93,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">

@@ -1,6 +1,8 @@
 #include "Chara_Player.h"
+#include "../../StageObject/Attack/Bullet.h"
 #include "../../Engine/Image.h"
-#include "../../Engine/Input.h"  // キー入力を処理するために追加
+#include "../../Engine/Input.h"  
+#include "../../Engine/SphereCollider.h"
 
 Chara_Player::Chara_Player(GameObject* parent)
     : GameObject(parent, "Chara_Player"), chara_Pict_(-1), chara_speed_(0.01f), chara_width_(64.f), chara_height_(64.f)
@@ -18,11 +20,16 @@ void Chara_Player::Initialize()
     // 画像データのロード
     chara_Pict_ = Image::Load("Character/Player_Back.png");
     assert(chara_Pict_ >= 0);
+    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.005f);
+    AddCollider(collision);
+
+    transform_.position_.y = -0.5f;
 }
 
 void Chara_Player::Update()
 {
     Move();  // 移動処理を呼び出す
+    Shot();
 }
 
 void Chara_Player::Draw()
@@ -58,7 +65,7 @@ void Chara_Player::Move()
         transform_.position_.x += chara_speed_;
     }
     
-    // スクリーンの端でのループ処理
+    // スクリーンの端に当たるまで
     transform_.position_.x = (transform_.position_.x < -chara_width_ / 2.0f) ? screenWidth_ + chara_width_ / 2.0f :
         (transform_.position_.x > screenWidth_ + chara_width_ / 2.0f) ? -chara_width_ / 2.0f :
         transform_.position_.x;
@@ -72,4 +79,31 @@ void Chara_Player::Move()
     transform_.position_.y = max(minScreen, min(transform_.position_.y, maxScreen - chara_height_));
 }
 
+void Chara_Player::Shot()
+{
+    //通常弾の発射はスペースキー
+    if (Input::IsKeyDown(DIK_SPACE))
+    {
+        Bullet* pBullet = Instantiate<Bullet>(GetParent());
+        pBullet->SetPosition(transform_.position_);
+    }
+}
+
+void Chara_Player::OnCollision(GameObject* pTarget)
+{
+    //当たったときの処理
+    //敵に当たるか弾に当たるかでピチュンします
+    if (pTarget->GetObjectName() == "Chara_Enemy")
+    {
+        this->KillMe();
+        pTarget->KillMe();
+    }
+    //if (pTarget->GetObjectName() == "EMBullet")
+    //{
+    //    this->KillMe();
+    //    pTarget->KillMe();
+
+
+    //}
+}
 

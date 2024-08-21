@@ -1,6 +1,5 @@
 #pragma once
 #include "../../Engine/GameObject.h"
-
 class Chara_Enemy : public GameObject
 {
 private:
@@ -10,6 +9,7 @@ private:
     
 
 public:
+   
     // コンストラクタ
     Chara_Enemy(GameObject* parent);
 
@@ -27,5 +27,7 @@ public:
 
     // 開放
     void Release() override;
+
+    void OnCollision(GameObject* pTarget) override;
 };
 

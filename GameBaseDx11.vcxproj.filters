@@ -116,6 +116,9 @@
     <ClCompile Include="StageObject\Character\Chara_Player.cpp">
       <Filter>StageObject\Character</Filter>
     </ClCompile>
+    <ClCompile Include="StageObject\Attack\Bullet.cpp" />
+    <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
+    <ClCompile Include="StageObject\Character\Enemy\EnemyManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -196,6 +199,9 @@
     <ClInclude Include="StageObject\Character\Chara_Player.h">
       <Filter>StageObject\Character</Filter>
     </ClInclude>
+    <ClInclude Include="StageObject\Attack\Bullet.h" />
+    <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
+    <ClInclude Include="StageObject\Character\Enemy\EnemyManager.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

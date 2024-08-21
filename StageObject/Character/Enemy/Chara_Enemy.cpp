@@ -1,5 +1,6 @@
 #include "Chara_Enemy.h"
 #include "../../../Engine/Image.h"
+#include "../../Engine/SphereCollider.h"
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1), enemy_Speed_(0.01f), enemy_Direction_(0.0f)
@@ -12,9 +13,12 @@ Chara_Enemy::~Chara_Enemy()
 
 void Chara_Enemy::Initialize()
 {
+	
 	// 画像データのロード
 	enemy_Pict_ = Image::Load("Character/Enemy_Red.png");
 	assert(enemy_Pict_ >= 0);
+	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.005f);
+	AddCollider(collision);
 
 	transform_.scale_.x = 3;
 	transform_.scale_.y = 3;
@@ -39,4 +43,15 @@ void Chara_Enemy::Draw()
 
 void Chara_Enemy::Release()
 {
+}
+
+void Chara_Enemy::OnCollision(GameObject* pTarget)
+{
+	//当たったときの処理
+	if (pTarget->GetObjectName() == "Bullet")
+	{
+		this->KillMe();
+		pTarget->KillMe();
+		
+	}
 }
