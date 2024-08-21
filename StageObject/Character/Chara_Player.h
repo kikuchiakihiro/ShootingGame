@@ -1,5 +1,6 @@
 #pragma once
 #include "../../Engine/GameObject.h"
+#include "../Attack/Bullet.h"
 
 class Chara_Player : public GameObject
 {
@@ -12,6 +13,8 @@ private:
     float maxScreen;
     float minScreen;
     float chara_speed_;
+
+   
 
 public:
     // コンストラクタ
@@ -34,4 +37,6 @@ public:
 
     // 移動処理
     void Move();
+
+    
 };

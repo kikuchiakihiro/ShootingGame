@@ -10,6 +10,7 @@ Chara_Player::Chara_Player(GameObject* parent)
 
 Chara_Player::~Chara_Player()
 {
+    
 }
 
 void Chara_Player::Initialize()
@@ -70,3 +71,5 @@ void Chara_Player::Move()
     transform_.position_.x = max(minScreen, min(transform_.position_.x, maxScreen - chara_width_));
     transform_.position_.y = max(minScreen, min(transform_.position_.y, maxScreen - chara_height_));
 }
+
+
