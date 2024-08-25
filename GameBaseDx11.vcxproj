@@ -155,6 +155,7 @@
     <ClCompile Include="StageObject\Character\Chara_Player.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\EnemyManager.cpp" />
+    <ClCompile Include="StageObject\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\Audio.h" />
@@ -186,6 +187,7 @@
     <ClInclude Include="StageObject\Character\Chara_Player.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
     <ClInclude Include="StageObject\Character\Enemy\EnemyManager.h" />
+    <ClInclude Include="StageObject\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\BillBoard.hlsl">

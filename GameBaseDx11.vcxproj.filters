@@ -36,6 +36,9 @@
     <Filter Include="StageObject\Character">
       <UniqueIdentifier>{c0dadda8-4af9-48eb-a599-a0120ea5690c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StageObject\Timer">
+      <UniqueIdentifier>{671f600c-3ffd-46cd-b9ab-f035391ab79f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -119,6 +122,7 @@
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\EnemyManager.cpp" />
+    <ClCompile Include="StageObject\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -202,6 +206,7 @@
     <ClInclude Include="StageObject\Attack\Bullet.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
     <ClInclude Include="StageObject\Character\Enemy\EnemyManager.h" />
+    <ClInclude Include="StageObject\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">
