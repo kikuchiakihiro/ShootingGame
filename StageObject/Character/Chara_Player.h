@@ -10,7 +10,8 @@ private:
     float chara_height_; // ƒvƒŒƒCƒ„[‚Ì‰æ‘œ‚Ì‚‚³
     float screenWidth_;
     float screenHeight_;
-    float maxScreen;
+    float maxScreenX;
+    float maxScreenY;
     float minScreen;
     float chara_speed_;
 

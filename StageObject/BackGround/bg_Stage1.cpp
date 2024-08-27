@@ -16,7 +16,8 @@ void bg_Stage1::Initialize()
     bg_Pict_ = Image::Load("bg/bg_Stage1.png");
     assert(bg_Pict_ >= 0);
 
-    
+    transform_.position_.x = -0.25f;
+    transform_.scale_.x = 0.75f;
 }
 
 void bg_Stage1::Update()

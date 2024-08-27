@@ -4,6 +4,7 @@
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1), enemy_Speed_(0.01f), enemy_Direction_(0.0f)
+	, enemy_Health_(10)
 {
 }
 
@@ -15,23 +16,19 @@ void Chara_Enemy::Initialize()
 {
 	
 	// 画像データのロード
-	enemy_Pict_ = Image::Load("Character/Enemy_Red.png");
+	enemy_Pict_ = Image::Load("Character/Boss_Space.png");
 	assert(enemy_Pict_ >= 0);
-	SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.005f);
+	BoxCollider* collision = new BoxCollider(XMFLOAT3(0, 0, 0), XMFLOAT3(0.35f,0.0005f,0.0f));
 	AddCollider(collision);
 
-	transform_.scale_.x = 3;
-	transform_.scale_.y = 3;
-	transform_.scale_.z = 3;
+	transform_.position_ = {-0.25f,0.25f,0.0f};
+	transform_.scale_ = {15,15,0};
+	
 }
 
 void Chara_Enemy::Update()
 {
-	//// 敵の移動（例: 左右に移動）
-	//if (enemy_Direction_ == 0.0f) // 右方向
-	//	transform_.position_.x += enemy_Speed_;
-	//else if (enemy_Direction_ == 1.0f) // 下方向
-	//	transform_.position_.y += enemy_Speed_;
+	
 
 }
 
@@ -47,11 +44,16 @@ void Chara_Enemy::Release()
 
 void Chara_Enemy::OnCollision(GameObject* pTarget)
 {
-	//当たったときの処理
+	// 当たったときの処理
 	if (pTarget->GetObjectName() == "Bullet")
 	{
-		this->KillMe();
-		pTarget->KillMe();
-		
+		enemy_Health_--;  // 体力を1減らす
+
+		if (enemy_Health_ <= 0)  // 体力が0以下なら消滅
+		{
+			this->KillMe();
+		}
+
+		pTarget->KillMe();  // 弾も消滅
 	}
 }

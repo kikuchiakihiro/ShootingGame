@@ -42,9 +42,9 @@ void Timer::Update()
 //•`‰æ
 void Timer::Draw()
 {
-    pText->Draw(drawX + 10, drawY + 10, "Time");
+    pText->Draw(drawX + 1000, drawY + 50, "Time");
     int sec = frame / FPS;
-    pText->Draw(drawX + 100, drawY + 10, sec);
+    pText->Draw(drawX + 1100, drawY + 50, sec);
 
 }
 
@@ -55,7 +55,7 @@ void Timer::Release()
 
 void Timer::SetLimit(float seconds)
 {
-    frame = (int)(seconds * 60.0f);
+    frame = (seconds * 60.0f);
 }
 
 void Timer::Start()
@@ -70,16 +70,5 @@ void Timer::Stop()
 
 bool Timer::IsFinished()
 {
-    /*bool ret;
-    if (frame == 0)
-    {
-        ret = true;
-    }
-    else
-    {
-        ret = false;
-    }
-    return false;*/
-
     return (frame == 0);
 }

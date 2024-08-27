@@ -6,7 +6,7 @@
 
 Chara_Player::Chara_Player(GameObject* parent)
     : GameObject(parent, "Chara_Player"), chara_Pict_(-1), chara_speed_(0.01f), chara_width_(64.f), chara_height_(64.f)
-    , screenWidth_(1280.f), screenHeight_(720.f),maxScreen(65.f),minScreen(-1.0f)
+    , screenWidth_(1280.f), screenHeight_(720.f),maxScreenX(64.47f), maxScreenY(65.f),minScreen(-0.97f)
 {
 }
 
@@ -75,8 +75,8 @@ void Chara_Player::Move()
         transform_.position_.y;
 
     // スクリーンの端に行かないように制限をかける
-    transform_.position_.x = max(minScreen, min(transform_.position_.x, maxScreen - chara_width_));
-    transform_.position_.y = max(minScreen, min(transform_.position_.y, maxScreen - chara_height_));
+    transform_.position_.x = max(minScreen, min(transform_.position_.x, maxScreenX - chara_width_));
+    transform_.position_.y = max(minScreen, min(transform_.position_.y, maxScreenY - chara_height_));
 }
 
 void Chara_Player::Shot()

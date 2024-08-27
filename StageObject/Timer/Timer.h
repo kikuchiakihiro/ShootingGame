@@ -7,7 +7,7 @@ class Timer : public GameObject
 {
 private:
 
-    int frame; //残り時間を数える変数
+    float frame; //残り時間を数える変数
     Text* pText;
     bool active; //trueの時にカウントダウンする
     int drawX, drawY; //表示位置

@@ -6,7 +6,7 @@ private:
     int enemy_Pict_;
     float enemy_Speed_;
     float enemy_Direction_; // 移動方向（例えば、0.0f = 右、1.0f = 下）
-    
+    int enemy_Health_;  // 体力
 
 public:
    
