@@ -120,9 +120,10 @@
       <Filter>StageObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
-    <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
-    <ClCompile Include="StageObject\Character\Enemy\EnemyManager.cpp" />
     <ClCompile Include="StageObject\Timer\Timer.cpp" />
+    <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp">
+      <Filter>StageObject\Character</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -204,9 +205,10 @@
       <Filter>StageObject\Character</Filter>
     </ClInclude>
     <ClInclude Include="StageObject\Attack\Bullet.h" />
-    <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
-    <ClInclude Include="StageObject\Character\Enemy\EnemyManager.h" />
     <ClInclude Include="StageObject\Timer\Timer.h" />
+    <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h">
+      <Filter>StageObject\Character</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

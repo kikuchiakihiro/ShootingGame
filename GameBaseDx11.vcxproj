@@ -71,8 +71,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\include;$(ProjectDir)\effekseelib\Effekseelib\install_msvc2022_x64\include\Effekseer;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\lib\x64\debug;$(ProjectDir)\effekseelib\Effekseelib\install_msvc2022_x64\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\include;$(ProjectDir)\effekseelib\Effekseelib\install_msvc2022_x64\include\Effekseer;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Users\kawas\Downloads\2020.3.7 1\2020.3.7\lib\x64\debug;$(ProjectDir)\effekseelib\Effekseelib\install_msvc2022_x64\lib;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.0.1\include;C:\Program Files\Autodesk\FBX\FBX SDK\2019.5\include;C:\Program Files\Autodesk\FBX\FBX SDK\2020.0\include;$(IncludePath)</IncludePath>
@@ -154,7 +154,6 @@
     <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp" />
     <ClCompile Include="StageObject\Character\Chara_Player.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
-    <ClCompile Include="StageObject\Character\Enemy\EnemyManager.cpp" />
     <ClCompile Include="StageObject\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -186,7 +185,6 @@
     <ClInclude Include="StageObject\BackGround\bg_Stage1.h" />
     <ClInclude Include="StageObject\Character\Chara_Player.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
-    <ClInclude Include="StageObject\Character\Enemy\EnemyManager.h" />
     <ClInclude Include="StageObject\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>

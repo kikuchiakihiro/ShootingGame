@@ -1,6 +1,6 @@
 #include "Chara_Enemy.h"
 #include "../../../Engine/Image.h"
-#include "../../Engine/SphereCollider.h"
+#include "../../../Engine/BoxCollider.h"
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1), enemy_Speed_(0.01f), enemy_Direction_(0.0f)
@@ -22,7 +22,7 @@ void Chara_Enemy::Initialize()
 	AddCollider(collision);
 
 	transform_.position_ = {-0.25f,0.25f,0.0f};
-	transform_.scale_ = {15,15,0};
+	transform_.scale_ = {10,10,0};
 	
 }
 
