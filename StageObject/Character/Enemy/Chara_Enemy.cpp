@@ -16,13 +16,13 @@ void Chara_Enemy::Initialize()
 {
 	
 	// 画像データのロード
-	enemy_Pict_ = Image::Load("Character/Boss_Space.png");
+	enemy_Pict_ = Image::Load("Character/Boss_Space_256.png");
 	assert(enemy_Pict_ >= 0);
 	BoxCollider* collision = new BoxCollider(XMFLOAT3(0, 0, 0), XMFLOAT3(0.35f,0.0005f,0.0f));
 	AddCollider(collision);
 
 	transform_.position_ = {-0.25f,0.25f,0.0f};
-	transform_.scale_ = {10,10,0};
+	//transform_.scale_ = {10,10,0};
 	
 }
 
