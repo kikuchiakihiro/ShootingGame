@@ -75,15 +75,15 @@ void Chara_Enemy::Spiralshoot()
 			pBullet->SetAngle(i * rengeAngle_ + (rengeTime_ % 360)); // 10度ずつ回転させる
 		}
 	}
-	if (rengeTime_ % 80 == 0) // 弾を発射するタイミング
+	if (rengeTime_ % 50 == 0) // 弾を発射するタイミング
 	{
 
-		for (int i = 0; i < 40; i++) // 弾を36発、10度ずつ回転させて発射
+		for (int i = 0; i < 36; i++) // 弾を36発、10度ずつ回転させて発射
 		{
 			EM_Bullet* pBullet = Instantiate<EM_Bullet>(GetParent());
 			XMFLOAT3 position = { transform_.position_.x, transform_.position_.y, transform_.position_.z };
 			pBullet->SetPosition(position);
-			pBullet->SetAngle(i * rengeAngle_+6 + (rengeTime_ % 360)); // 10度ずつ回転させる
+			pBullet->SetAngle(i * rengeAngle_++ + (rengeTime_ % 360)); // 10度ずつ回転させる
 		}
 	}
 }
