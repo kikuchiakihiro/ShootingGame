@@ -31,7 +31,7 @@ void Bullet::Update()
 
     transform_.position_.y += 0.05f;
 
-    if (transform_.position_.y > 5.0f)
+    if (transform_.position_.y > 0.5f)
     {
         KillMe();
     }

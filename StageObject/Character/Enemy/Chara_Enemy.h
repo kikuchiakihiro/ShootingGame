@@ -4,15 +4,20 @@ class Chara_Enemy : public GameObject
 {
 private:
     int enemy_Pict_;
-    float enemy_Speed_;
-    float enemy_Direction_; // 移動方向（例えば、0.0f = 右、1.0f = 下）
     int enemy_Health_;  // 体力
+    int rengeTime_;
 
+    float rengeAngle_;
+    float shotAngle_;
+    float shotSpeed_;
+    float shootInterval_;
+    float timeSinceLastShot_;
+    float shootOffset_;
 public:
    
     // コンストラクタ
     Chara_Enemy(GameObject* parent);
-
+    
     // デストラクタ
     ~Chara_Enemy();
 
@@ -29,5 +34,17 @@ public:
     void Release() override;
 
     void OnCollision(GameObject* pTarget) override;
+
+    void Spiralshoot();
+
+    void SetShootInterval(float _interval)
+    {
+        shootInterval_ = _interval;
+    }
+
+    void SetShootOffset(float _offset)
+    {
+        shootOffset_ = _offset;
+    }
 };
 

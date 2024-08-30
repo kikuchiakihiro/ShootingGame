@@ -124,6 +124,10 @@
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp">
       <Filter>StageObject\Character</Filter>
     </ClCompile>
+    <ClCompile Include="StageObject\Attack\EM_Bullet.cpp" />
+    <ClCompile Include="StageObject\BackGround\bg_ScoreBoard.cpp">
+      <Filter>StageObject\BackGround</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -208,6 +212,10 @@
     <ClInclude Include="StageObject\Timer\Timer.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h">
       <Filter>StageObject\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\Attack\EM_Bullet.h" />
+    <ClInclude Include="StageObject\BackGround\bg_ScoreBoard.h">
+      <Filter>StageObject\BackGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

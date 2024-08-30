@@ -20,10 +20,10 @@ void Chara_Player::Initialize()
     // 画像データのロード
     chara_Pict_ = Image::Load("Character/Player_Back.png");
     assert(chara_Pict_ >= 0);
-    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.005f);
+    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.00005f);
     AddCollider(collision);
 
-    transform_.position_.y = -0.5f;
+    transform_.position_ = { -0.25f,-0.5f,0.0f };
 }
 
 void Chara_Player::Update()
@@ -98,12 +98,12 @@ void Chara_Player::OnCollision(GameObject* pTarget)
         this->KillMe();
         pTarget->KillMe();
     }
-    //if (pTarget->GetObjectName() == "EMBullet")
-    //{
-    //    this->KillMe();
-    //    pTarget->KillMe();
+    if (pTarget->GetObjectName() == "EM_Bullet")
+    {
+        this->KillMe();
+        pTarget->KillMe();
 
 
-    //}
+    }
 }
 

@@ -1,17 +1,16 @@
 #pragma once
 #include "../../Engine/GameObject.h"
-
-//◆◆◆を管理するクラス
-class Bullet : public GameObject
+class bg_ScoreBoard : public GameObject
 {
 private:
-    int bullet_Pict_ ;
+    int bg_Pict_;
+   
 public:
     //コンストラクタ
-    Bullet(GameObject* parent);
+    bg_ScoreBoard(GameObject* parent);
 
     //デストラクタ
-    ~Bullet();
+    ~bg_ScoreBoard();
 
     //初期化
     void Initialize() override;

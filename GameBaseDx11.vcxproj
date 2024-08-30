@@ -151,6 +151,8 @@
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Scene\Scene_Play.cpp" />
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
+    <ClCompile Include="StageObject\Attack\EM_Bullet.cpp" />
+    <ClCompile Include="StageObject\BackGround\bg_ScoreBoard.cpp" />
     <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp" />
     <ClCompile Include="StageObject\Character\Chara_Player.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
@@ -182,6 +184,8 @@
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Scene\Scene_Play.h" />
     <ClInclude Include="StageObject\Attack\Bullet.h" />
+    <ClInclude Include="StageObject\Attack\EM_Bullet.h" />
+    <ClInclude Include="StageObject\BackGround\bg_ScoreBoard.h" />
     <ClInclude Include="StageObject\BackGround\bg_Stage1.h" />
     <ClInclude Include="StageObject\Character\Chara_Player.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />

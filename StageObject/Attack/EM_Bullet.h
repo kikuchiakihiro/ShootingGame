@@ -2,16 +2,19 @@
 #include "../../Engine/GameObject.h"
 
 //◆◆◆を管理するクラス
-class Bullet : public GameObject
+class EM_Bullet : public GameObject
 {
 private:
-    int bullet_Pict_ ;
+    int EM_Bullet_Pict_;
+    XMFLOAT3 direction_;
+    float speed_;
+    float angle_;
 public:
     //コンストラクタ
-    Bullet(GameObject* parent);
+    EM_Bullet(GameObject* parent);
 
     //デストラクタ
-    ~Bullet();
+    ~EM_Bullet();
 
     //初期化
     void Initialize() override;
@@ -24,5 +27,8 @@ public:
 
     //開放
     void Release() override;
+
+    void SetPosition(XMFLOAT3 _position);
+    void SetAngle(float _angle);
 };
 
