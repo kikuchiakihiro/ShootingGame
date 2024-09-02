@@ -105,5 +105,10 @@ void Chara_Player::OnCollision(GameObject* pTarget)
 
 
     }
+    if (pTarget->GetObjectName() == "Big_Bullet")
+    {
+        this->KillMe();
+        
+    }
 }
 

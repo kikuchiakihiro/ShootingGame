@@ -4,6 +4,7 @@
 #include "../../Attack/EM_Bullet.h"
 #include "../../Score/Score.h"
 #include <chrono>
+#include "../../Attack/Big_Bullet.h"
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
@@ -33,7 +34,7 @@ void Chara_Enemy::Update()
 {
 	rengeTime_++;
 	Spiralshoot();
-
+	BigShoot();
 }
 
 void Chara_Enemy::Draw()
@@ -98,6 +99,13 @@ void Chara_Enemy::Spiralshoot()
 
 void Chara_Enemy::BigShoot()
 {
-	
+	// 大きな弾の発射
+	if (rengeTime_ % 360 == 0)  // 例: 100フレームごとに発射
+	{
+		Big_Bullet* pBigBullet = Instantiate<Big_Bullet>(GetParent());  // 速度とサイズを指定
+		XMFLOAT3 position = { transform_.position_.x, transform_.position_.y, transform_.position_.z };
+		pBigBullet->SetPosition(position);
+		pBigBullet->SetAngle(-90); // 10度ずつ回転させる
+	}
 }
 

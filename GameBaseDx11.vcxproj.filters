@@ -134,6 +134,7 @@
       <Filter>StageObject\Timer</Filter>
     </ClCompile>
     <ClCompile Include="StageObject\Score\Score.cpp" />
+    <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -226,6 +227,7 @@
       <Filter>StageObject\Timer</Filter>
     </ClInclude>
     <ClInclude Include="StageObject\Score\Score.h" />
+    <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">
