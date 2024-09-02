@@ -157,6 +157,7 @@
     <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp" />
     <ClCompile Include="StageObject\Character\Chara_Player.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
+    <ClCompile Include="StageObject\Gauge\Boss_HpGauge.cpp" />
     <ClCompile Include="StageObject\Score\Score.cpp" />
     <ClCompile Include="StageObject\Timer\Timer.cpp" />
   </ItemGroup>
@@ -192,6 +193,7 @@
     <ClInclude Include="StageObject\BackGround\bg_Stage1.h" />
     <ClInclude Include="StageObject\Character\Chara_Player.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
+    <ClInclude Include="StageObject\Gauge\Boss_HpGauge.h" />
     <ClInclude Include="StageObject\Score\Score.h" />
     <ClInclude Include="StageObject\Timer\Timer.h" />
   </ItemGroup>

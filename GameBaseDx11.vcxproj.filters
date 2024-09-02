@@ -42,6 +42,9 @@
     <Filter Include="StageObject\Score">
       <UniqueIdentifier>{f4a7fd74-f28b-426e-977b-c3346db9cd21}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StageObject\Gauge">
+      <UniqueIdentifier>{1848743a-3445-472c-b19b-b38505a1a110}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -135,6 +138,7 @@
     </ClCompile>
     <ClCompile Include="StageObject\Score\Score.cpp" />
     <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
+    <ClCompile Include="StageObject\Gauge\Boss_HpGauge.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -228,6 +232,7 @@
     </ClInclude>
     <ClInclude Include="StageObject\Score\Score.h" />
     <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
+    <ClInclude Include="StageObject\Gauge\Boss_HpGauge.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

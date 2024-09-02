@@ -1,5 +1,6 @@
 #pragma once
 #include "../../../Engine/GameObject.h"
+#include "../../Gauge/Boss_HpGauge.h"
 class Chara_Enemy : public GameObject
 {
 private:
@@ -13,6 +14,8 @@ private:
     float shootInterval_;
     float timeSinceLastShot_;
     float shootOffset_;
+
+    Boss_HpGauge* Hp = new Boss_HpGauge(this);
 public:
    
     // コンストラクタ

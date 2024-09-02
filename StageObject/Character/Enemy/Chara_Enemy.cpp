@@ -3,17 +3,20 @@
 #include "../../../Engine/BoxCollider.h"
 #include "../../Attack/EM_Bullet.h"
 #include "../../Score/Score.h"
-#include <chrono>
 #include "../../Attack/Big_Bullet.h"
+#include <chrono>
+
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
 	, enemy_Health_(100), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 {
+	
 }
 
 Chara_Enemy::~Chara_Enemy()
 {
+
 }
 
 void Chara_Enemy::Initialize()
@@ -26,21 +29,31 @@ void Chara_Enemy::Initialize()
 	AddCollider(collision);
 
 	transform_.position_ = {-0.25f,0.5f,0.0f};
-	//transform_.scale_ = {10,10,0};
 	
+	// HealthBar のインスタンスを作成
+	
+	Hp->SetMaxHealth(enemy_Health_);  // 最大体力を設定
+	Hp->Initialize();  // 初期化
 }
 
 void Chara_Enemy::Update()
 {
+
 	rengeTime_++;
 	Spiralshoot();
 	BigShoot();
+
+	// HealthBar の位置とスケールを更新
+	Hp->Update();
 }
 
 void Chara_Enemy::Draw()
 {
 	Image::SetTransform(enemy_Pict_, transform_);
 	Image::Draw(enemy_Pict_);
+
+	// HealthBar を描画
+	Hp->Draw();
 }
 
 void Chara_Enemy::Release()
@@ -53,7 +66,7 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 	if (pTarget->GetObjectName() == "Bullet")
 	{
 		enemy_Health_--;  // 体力を1減らす
-
+		Hp->SetHealth(enemy_Health_);  // 体力ゲージを更新
 		// スコアを100点加算
 		Score* score = dynamic_cast<Score*>(FindObject("Score"));
 		if (score)
