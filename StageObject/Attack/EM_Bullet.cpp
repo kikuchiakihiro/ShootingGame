@@ -64,14 +64,6 @@ void EM_Bullet::Release()
 {
 }
 
-void EM_Bullet::SetPosition(XMFLOAT3 _position)
-{
-    transform_.position_.x = _position.x;
-    transform_.position_.y = _position.y;
-    transform_.position_.z = _position.z;
-}
 
-void EM_Bullet::SetAngle(float _angle)
-{
-    angle_ = _angle;
-}
+
+

@@ -37,6 +37,7 @@ public:
 
     void Spiralshoot();
 
+    void BigShoot();
     void SetShootInterval(float _interval)
     {
         shootInterval_ = _interval;

@@ -28,7 +28,14 @@ public:
     //ŠJ•ú
     void Release() override;
 
-    void SetPosition(XMFLOAT3 _position);
-    void SetAngle(float _angle);
+    void SetPosition(XMFLOAT3 _position)
+    {
+        transform_.position_.x = _position.x;
+        transform_.position_.y = _position.y;
+        transform_.position_.z = _position.z;
+    }
+    void SetAngle(float _angle){angle_ = _angle;}
+    
+   
 };
 

@@ -39,6 +39,9 @@
     <Filter Include="StageObject\Timer">
       <UniqueIdentifier>{671f600c-3ffd-46cd-b9ab-f035391ab79f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StageObject\Score">
+      <UniqueIdentifier>{f4a7fd74-f28b-426e-977b-c3346db9cd21}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -120,7 +123,6 @@
       <Filter>StageObject\Character</Filter>
     </ClCompile>
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
-    <ClCompile Include="StageObject\Timer\Timer.cpp" />
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp">
       <Filter>StageObject\Character</Filter>
     </ClCompile>
@@ -128,6 +130,10 @@
     <ClCompile Include="StageObject\BackGround\bg_ScoreBoard.cpp">
       <Filter>StageObject\BackGround</Filter>
     </ClCompile>
+    <ClCompile Include="StageObject\Timer\Timer.cpp">
+      <Filter>StageObject\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject\Score\Score.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -209,7 +215,6 @@
       <Filter>StageObject\Character</Filter>
     </ClInclude>
     <ClInclude Include="StageObject\Attack\Bullet.h" />
-    <ClInclude Include="StageObject\Timer\Timer.h" />
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h">
       <Filter>StageObject\Character</Filter>
     </ClInclude>
@@ -217,6 +222,10 @@
     <ClInclude Include="StageObject\BackGround\bg_ScoreBoard.h">
       <Filter>StageObject\BackGround</Filter>
     </ClInclude>
+    <ClInclude Include="StageObject\Timer\Timer.h">
+      <Filter>StageObject\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\Score\Score.h" />
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

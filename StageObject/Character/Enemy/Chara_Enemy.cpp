@@ -2,6 +2,7 @@
 #include "../../../Engine/Image.h"
 #include "../../../Engine/BoxCollider.h"
 #include "../../Attack/EM_Bullet.h"
+#include "../../Score/Score.h"
 #include <chrono>
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
@@ -52,6 +53,13 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 	{
 		enemy_Health_--;  // 体力を1減らす
 
+		// スコアを100点加算
+		Score* score = dynamic_cast<Score*>(FindObject("Score"));
+		if (score)
+		{
+			score->AddScore(100);
+		}
+
 		if (enemy_Health_ <= 0)  // 体力が0以下なら消滅
 		{
 			this->KillMe();
@@ -86,5 +94,10 @@ void Chara_Enemy::Spiralshoot()
 			pBullet->SetAngle(i * rengeAngle_++ + (rengeTime_ % 360)); // 10度ずつ回転させる
 		}
 	}
+}
+
+void Chara_Enemy::BigShoot()
+{
+	
 }
 
