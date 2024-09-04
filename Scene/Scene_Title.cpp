@@ -14,6 +14,7 @@ void Scene_Title::Initialize()
 
 void Scene_Title::Update()
 {
+
 	if (Input::IsKeyDown(DIK_RETURN))
 	{
 		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");

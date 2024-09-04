@@ -13,7 +13,7 @@ bg_Title::~bg_Title()
 void bg_Title::Initialize()
 {
     // 画像データのロード
-    bg_Pict_ = Image::Load("bg/bg_Title_DEMO.png");
+    bg_Pict_ = Image::Load("bg/bg_Title.png");
     assert(bg_Pict_ >= 0);
 
 }

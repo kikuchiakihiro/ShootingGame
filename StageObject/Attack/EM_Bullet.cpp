@@ -3,7 +3,7 @@
 #include "../../Engine/Input.h"
 //コンストラクタ
 EM_Bullet::EM_Bullet(GameObject* parent)
-    :GameObject(parent, "EM_Bullet"), EM_Bullet_Pict_(-1), speed_(0.015f)
+    :GameObject(parent, "EM_Bullet"), EM_Bullet_Pict_(-1), speed_(0.02f)
 {
 }
 

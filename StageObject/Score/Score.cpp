@@ -60,3 +60,7 @@ void Score::StartCounting()
 {
     isCounting_ = true;
 }
+
+
+
+

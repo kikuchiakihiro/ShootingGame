@@ -5,11 +5,12 @@
 #include "../../Score/Score.h"
 #include "../../Attack/Big_Bullet.h"
 #include <chrono>
+#include "../../../Engine/SceneManager.h"
 
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(250), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(5), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 {
 	
 }
@@ -45,6 +46,7 @@ void Chara_Enemy::Update()
 
 	// HealthBar の位置とスケールを更新
 	Hp->Update();
+	
 }
 
 void Chara_Enemy::Draw()
@@ -68,17 +70,20 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 		enemy_Health_--;  // 体力を1減らす
 		Hp->SetHealth(enemy_Health_);  // 体力ゲージを更新
 		// スコアを100点加算
+		
 		Score* score = dynamic_cast<Score*>(FindObject("Score"));
-		if (score)
-		{
+		
 			score->AddScore(100);
-		}
+		
 
 		if (enemy_Health_ <= 0)  // 体力が0以下なら消滅
 		{
+	
 			score->StopCounting();
-			this->KillMe();
 			
+			this->KillMe();
+			SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+			pSceneManager->ChangeScene(SCENE_ID_CLEARRESULT);
 		}
 
 		pTarget->KillMe();  // 弾も消滅

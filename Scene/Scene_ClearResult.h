@@ -1,9 +1,12 @@
 #pragma once
 #include "../../../../../Engine/GameObject.h"
+#include "../../../../../Engine/Text.h"
 class Scene_ClearResult : public GameObject
 {
 private:
-
+	Text* pText;
+	int drawX, drawY; //表示位置
+	int finalScore;
 public:
 	//コンストラクタ
 	//引数：parent  親オブジェクト（SceneManager）

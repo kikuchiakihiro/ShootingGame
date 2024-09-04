@@ -16,6 +16,7 @@ private:
     float shootOffset_;
 
     Boss_HpGauge* Hp = new Boss_HpGauge(this);
+
 public:
    
     // コンストラクタ

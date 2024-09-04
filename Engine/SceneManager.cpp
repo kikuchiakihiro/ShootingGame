@@ -1,6 +1,8 @@
 #include "sceneManager.h"
 #include "../Scene/Scene_Title.h"
 #include "../Scene/Scene_Play.h"
+#include "../Scene/Scene_GameOver.h"
+#include "../Scene/Scene_ClearResult.h"
 #include "Model.h"
 #include "Image.h"
 #include "Audio.h"
@@ -40,6 +42,8 @@ void SceneManager::Update()
 		{
 		case SCENE_ID_TITLE: Instantiate<Scene_Title>(this); break;
 		case SCENE_ID_PLAY: Instantiate<Scene_Play>(this); break;
+		case SCENE_ID_GAMEOVER: Instantiate<Scene_GameOver>(this); break;
+		case SCENE_ID_CLEARRESULT: Instantiate<Scene_ClearResult>(this); break;
 		
 		}
 		Audio::Initialize();

@@ -136,11 +136,24 @@
     <ClCompile Include="StageObject\Timer\Timer.cpp">
       <Filter>StageObject\Timer</Filter>
     </ClCompile>
-    <ClCompile Include="StageObject\Score\Score.cpp" />
     <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
-    <ClCompile Include="StageObject\Gauge\Boss_HpGauge.cpp" />
     <ClCompile Include="Scene\Scene_Title.cpp">
       <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene_ClearResult.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene\Scene_GameOver.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject\BackGround\bg_Title.cpp">
+      <Filter>StageObject\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject\Gauge\Boss_HpGauge.cpp">
+      <Filter>StageObject\Gauge</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject\Score\Score.cpp">
+      <Filter>StageObject\Score</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -233,11 +246,24 @@
     <ClInclude Include="StageObject\Timer\Timer.h">
       <Filter>StageObject\Timer</Filter>
     </ClInclude>
-    <ClInclude Include="StageObject\Score\Score.h" />
     <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
-    <ClInclude Include="StageObject\Gauge\Boss_HpGauge.h" />
     <ClInclude Include="Scene\Scene_Title.h">
       <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene_ClearResult.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene_GameOver.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\BackGround\bg_Title.h">
+      <Filter>StageObject\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\Gauge\Boss_HpGauge.h">
+      <Filter>StageObject\Gauge</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\Score\Score.h">
+      <Filter>StageObject\Score</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
