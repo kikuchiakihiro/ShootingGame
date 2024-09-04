@@ -16,8 +16,6 @@ void bg_ScoreBoard::Initialize()
     bg_Pict_ = Image::Load("bg/bg_ScoreBoard.png");
     assert(bg_Pict_ >= 0);
 
-    //transform_.position_.x = 0.25f;
-    //transform_.scale_.x = 0.75f;
 }
 
 void bg_ScoreBoard::Update()

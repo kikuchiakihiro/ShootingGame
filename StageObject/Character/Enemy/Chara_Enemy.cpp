@@ -76,7 +76,9 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 
 		if (enemy_Health_ <= 0)  // ëÃóÕÇ™0à»â∫Ç»ÇÁè¡ñ≈
 		{
+			score->StopCounting();
 			this->KillMe();
+			
 		}
 
 		pTarget->KillMe();  // íeÇ‡è¡ñ≈

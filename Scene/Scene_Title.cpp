@@ -1,5 +1,7 @@
 #include "Scene_Title.h"
-
+#include "../../../../../StageObject/BackGround/bg_Title.h"
+#include "../../../../../Engine/SceneManager.h"
+#include "../Engine/Input.h"
 Scene_Title::Scene_Title(GameObject* parent)
 	: GameObject(parent, "Scene_Title")
 {
@@ -7,10 +9,16 @@ Scene_Title::Scene_Title(GameObject* parent)
 
 void Scene_Title::Initialize()
 {
+	Instantiate<bg_Title>(this);
 }
 
 void Scene_Title::Update()
 {
+	if (Input::IsKeyDown(DIK_RETURN))
+	{
+		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+		pSceneManager->ChangeScene(SCENE_ID_PLAY);
+	}
 }
 
 void Scene_Title::Draw()

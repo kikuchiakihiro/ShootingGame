@@ -2,7 +2,7 @@
 
 
 Score::Score(GameObject* parent)
-    : GameObject(parent, "Score"), pText(nullptr), score_(0), timer_(0.0f), drawX(0), drawY(0)
+    : GameObject(parent, "Score"), pText(nullptr), score_(0), timer_(0.0f), drawX(0), drawY(0),isCounting_(true)
 {
 }
 
@@ -19,12 +19,15 @@ void Score::Initialize()
 
 void Score::Update()
 {
-    // 0.01秒ごとにスコアを1増やす
-    timer_ += 0.01f;
-    if (timer_ >= 0.01f)
+    if (isCounting_)
     {
-        score_ += 1;
-        timer_ -= 0.01f;  // タイマーをリセット
+        // 0.01秒ごとにスコアを1増やす
+        timer_ += 0.01f;
+        if (timer_ >= 0.01f)
+        {
+            score_ += 1;
+            timer_ -= 0.01f;  // タイマーをリセット
+        }
     }
 
   
@@ -48,3 +51,12 @@ void Score::AddScore(int amount)
     score_ += amount;
 }
 
+void Score::StopCounting()
+{
+    isCounting_ = false;
+}
+
+void Score::StartCounting()
+{
+    isCounting_ = true;
+}

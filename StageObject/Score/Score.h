@@ -9,6 +9,7 @@ private:
     int score_;  // スコアの変数
     float timer_;  // タイマー用の変数
     int drawX, drawY; //表示位置
+    bool isCounting_; // スコアのカウントが有効かどうか
 public:
     // コンストラクタ
     Score(GameObject* parent);
@@ -30,5 +31,10 @@ public:
 
     // スコアを加算する関数
     void AddScore(int amount);
+    // スコアのカウントを停止する
+    void StopCounting();
+
+    // スコアのカウントを再開する（必要に応じて）
+    void StartCounting();
 };
 

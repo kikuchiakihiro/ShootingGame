@@ -18,7 +18,7 @@ void SceneManager::Initialize()
 	//最初のシーンを準備
 	currentSceneID_ = SCENE_ID_TITLE;
 	nextSceneID_ = currentSceneID_;
-	Instantiate<Scene_Play>(this);
+	Instantiate<Scene_Title>(this);
 }
 
 //更新
@@ -38,8 +38,9 @@ void SceneManager::Update()
 		//次のシーンを作成
 		switch (nextSceneID_)
 		{
-		case SCENE_ID_PLAY: Instantiate<Scene_Play>(this); break;
 		case SCENE_ID_TITLE: Instantiate<Scene_Title>(this); break;
+		case SCENE_ID_PLAY: Instantiate<Scene_Play>(this); break;
+		
 		}
 		Audio::Initialize();
 		currentSceneID_ = nextSceneID_;
