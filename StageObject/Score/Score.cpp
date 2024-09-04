@@ -1,8 +1,9 @@
 #include "Score.h"
 
 
+
 Score::Score(GameObject* parent)
-    : GameObject(parent, "Score"), pText(nullptr), score_(0), timer_(0.0f), drawX(0), drawY(0),isCounting_(true)
+    : GameObject(parent, "Score"), pText(nullptr), timer_(0.0f), drawX(0), drawY(0),isCounting_(true)
 {
 }
 

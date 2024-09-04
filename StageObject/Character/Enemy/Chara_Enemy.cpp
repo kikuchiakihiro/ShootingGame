@@ -80,7 +80,7 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 		{
 	
 			score->StopCounting();
-			
+			score->SetSaveScore();
 			this->KillMe();
 			SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
 			pSceneManager->ChangeScene(SCENE_ID_CLEARRESULT);
