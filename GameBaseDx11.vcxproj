@@ -150,6 +150,7 @@
     <ClCompile Include="Engine\Texture.cpp" />
     <ClCompile Include="Engine\Transform.cpp" />
     <ClCompile Include="Scene\Scene_Play.cpp" />
+    <ClCompile Include="Scene\Scene_Title.cpp" />
     <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
     <ClCompile Include="StageObject\Attack\EM_Bullet.cpp" />
@@ -186,6 +187,7 @@
     <ClInclude Include="Engine\Texture.h" />
     <ClInclude Include="Engine\Transform.h" />
     <ClInclude Include="Scene\Scene_Play.h" />
+    <ClInclude Include="Scene\Scene_Title.h" />
     <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
     <ClInclude Include="StageObject\Attack\Bullet.h" />
     <ClInclude Include="StageObject\Attack\EM_Bullet.h" />

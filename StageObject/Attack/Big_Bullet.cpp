@@ -17,7 +17,7 @@ void Big_Bullet::Initialize()
 {
     Big_Bullet_Pict_ = Image::Load("Bullet/Boss_Bullet_P.png");
     assert(Big_Bullet_Pict_ >= 0);
-    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.25f);
+    SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.19f);
     AddCollider(collision);
 
     

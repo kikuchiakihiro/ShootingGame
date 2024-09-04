@@ -7,6 +7,7 @@
 Chara_Player::Chara_Player(GameObject* parent)
     : GameObject(parent, "Chara_Player"), chara_Pict_(-1), chara_speed_(0.01f), chara_width_(64.f), chara_height_(64.f)
     , screenWidth_(1280.f), screenHeight_(720.f),maxScreenX(64.47f), maxScreenY(65.f),minScreen(-0.97f)
+    
 {
 }
 

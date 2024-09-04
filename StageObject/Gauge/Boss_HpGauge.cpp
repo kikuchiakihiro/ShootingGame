@@ -3,7 +3,7 @@
 
 // コンストラクタ
 Boss_HpGauge::Boss_HpGauge(GameObject* parent)
-    : GameObject(parent, "Boss_HpGauge"), maxHealth_(100), currentHealth_(100)  // 初期値を設定
+    : GameObject(parent, "Boss_HpGauge"), maxHealth_(0), currentHealth_(0)  // 初期値を設定
 {
 }
 
@@ -19,9 +19,8 @@ void Boss_HpGauge::Initialize()
     Boss_HpGauge_Pict_ = Image::Load("Gauge/Boss_HpBar.png");
     assert(Boss_HpGauge_Pict_ >= 0);
 
-    // 初期位置とスケールを設定
-    position_ = { 0.0f, 0.0f, 0.0f };
-    scale_ = { 1.0f, 0.1f, 1.0f };  // 初期スケールは1
+    position_ = { -0.25f,0.9f,0.0f };
+    scale_ = { 1000.0f,1.0f, 0.0f, };
 }
 
 // 最大体力を設定するメソッド

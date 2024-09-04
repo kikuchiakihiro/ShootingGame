@@ -139,6 +139,9 @@
     <ClCompile Include="StageObject\Score\Score.cpp" />
     <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
     <ClCompile Include="StageObject\Gauge\Boss_HpGauge.cpp" />
+    <ClCompile Include="Scene\Scene_Title.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -233,6 +236,9 @@
     <ClInclude Include="StageObject\Score\Score.h" />
     <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
     <ClInclude Include="StageObject\Gauge\Boss_HpGauge.h" />
+    <ClInclude Include="Scene\Scene_Title.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Assets\Shader\Simple2D.hlsl">

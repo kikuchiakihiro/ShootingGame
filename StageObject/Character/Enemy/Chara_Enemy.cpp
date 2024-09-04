@@ -9,7 +9,7 @@
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(100), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(250), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 {
 	
 }
@@ -28,7 +28,7 @@ void Chara_Enemy::Initialize()
 	BoxCollider* collision = new BoxCollider(XMFLOAT3(0, 0, 0), XMFLOAT3(0.35f,0.0005f,0.0f));
 	AddCollider(collision);
 
-	transform_.position_ = {-0.25f,0.5f,0.0f};
+	transform_.position_ = {-0.25f,0.4f,0.0f};
 	
 	// HealthBar のインスタンスを作成
 	

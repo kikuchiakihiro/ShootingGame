@@ -15,7 +15,6 @@ private:
     float minScreen;
     float chara_speed_;
 
-   
 
 public:
     // コンストラクタ
