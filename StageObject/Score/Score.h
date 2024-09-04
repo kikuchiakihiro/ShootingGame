@@ -40,5 +40,5 @@ public:
     // スコアのカウントを再開する（必要に応じて）
     void StartCounting();
 
-    
+   
 };

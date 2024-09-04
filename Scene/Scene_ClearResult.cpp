@@ -19,9 +19,7 @@ void Scene_ClearResult::Update()
 void Scene_ClearResult::Draw()
 {
 	
-
-	
-	
+	pText->Draw(drawX + 1000, drawY + 100, "Score");
 }
 
 void Scene_ClearResult::Release()
