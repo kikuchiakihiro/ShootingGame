@@ -8,9 +8,11 @@
 #include "../../../Engine/SceneManager.h"
 
 
+
+
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(5), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(100), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 {
 	
 }
@@ -41,8 +43,25 @@ void Chara_Enemy::Update()
 {
 
 	rengeTime_++;
-	Spiralshoot();
-	BigShoot();
+	// ‘Ì—Í‚É‰ž‚¶‚Äó‘Ô‚ð•ÏX
+	ChangeHealthState();
+
+	// Œ»Ý‚Ìó‘Ô‚É‰ž‚¶‚½UŒ‚‚ðŽÀs
+	switch (currentState_)
+	{
+	case HIGHHEALTH:
+		Spiralshoot();  // ‘Ì—Í‚ª‚‚¢Žž‚ÌUŒ‚
+		break;
+	case MEDIUMHEALTH:
+		BigShoot();  // ‘Ì—Í‚ª’†‚­‚ç‚¢‚ÌŽž‚ÌUŒ‚
+		break;
+	case LOWHEALTH:
+		Spiralshoot();
+		BigShoot();  // ‘Ì—Í‚ª’á‚¢Žž‚ÌUŒ‚
+		break;
+	default:
+		break;
+	}
 
 	// HealthBar ‚ÌˆÊ’u‚ÆƒXƒP[ƒ‹‚ðXV
 	Hp->Update();
@@ -75,18 +94,31 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 		
 			score->AddScore(100);
 		
-
 		if (enemy_Health_ <= 0)  // ‘Ì—Í‚ª0ˆÈ‰º‚È‚çÁ–Å
 		{
-	
 			score->StopCounting();
-			score->SetSaveScore();
 			this->KillMe();
 			SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
 			pSceneManager->ChangeScene(SCENE_ID_CLEARRESULT);
 		}
 
 		pTarget->KillMe();  // ’e‚àÁ–Å
+	}
+}
+
+void Chara_Enemy::ChangeHealthState()
+{
+	if (enemy_Health_ > 70)
+	{
+		currentState_ = HIGHHEALTH;
+	}
+	else if (enemy_Health_ > 30)
+	{
+		currentState_ = MEDIUMHEALTH;
+	}
+	else
+	{
+		currentState_ = LOWHEALTH;
 	}
 }
 

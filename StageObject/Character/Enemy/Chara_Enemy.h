@@ -1,6 +1,14 @@
 #pragma once
 #include "../../../Engine/GameObject.h"
 #include "../../Gauge/Boss_HpGauge.h"
+
+enum  EnemyState
+{
+    HIGHHEALTH,   // ‘Ì—Í‚ª‚‚¢‚Ìó‘Ô
+    MEDIUMHEALTH, // ‘Ì—Í‚ª’†‚­‚ç‚¢‚Ì‚Ìó‘Ô
+    LOWHEALTH     // ‘Ì—Í‚ª’á‚¢‚Ìó‘Ô
+};
+
 class Chara_Enemy : public GameObject
 {
 private:
@@ -15,6 +23,7 @@ private:
     float timeSinceLastShot_;
     float shootOffset_;
 
+    EnemyState currentState_;
     Boss_HpGauge* Hp = new Boss_HpGauge(this);
 
 public:
@@ -39,9 +48,12 @@ public:
 
     void OnCollision(GameObject* pTarget) override;
 
+    void ChangeHealthState();  // ‘Ì—Í‚É‰‚¶‚Äó‘Ô‚ğ•ÏX
+
     void Spiralshoot();
 
     void BigShoot();
+
     void SetShootInterval(float _interval)
     {
         shootInterval_ = _interval;
