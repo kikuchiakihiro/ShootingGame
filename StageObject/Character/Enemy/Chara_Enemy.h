@@ -8,7 +8,7 @@ enum  EnemyState
     MEDIUMHEALTH, // 体力が中くらいの時の状態
     LOWHEALTH     // 体力が低い時の状態
 };
-
+enum AttackState { ATTACK, INTERVAL } ; // 攻撃状態
 class Chara_Enemy : public GameObject
 {
 private:
@@ -19,10 +19,13 @@ private:
     float rengeAngle_;
     float shotAngle_;
     float shotSpeed_;
-    float shootInterval_;
     float timeSinceLastShot_;
     float shootOffset_;
+    float shootDuration_; // 弾幕を撃ち続ける時間
+    float intervalTime_; // インターバルの時間
+    float currentTime_;
 
+    AttackState attackState_;
     EnemyState currentState_;
     Boss_HpGauge* Hp = new Boss_HpGauge(this);
 
@@ -54,14 +57,14 @@ public:
 
     void BigShoot();
 
-    void SetShootInterval(float _interval)
-    {
-        shootInterval_ = _interval;
-    }
 
     void SetShootOffset(float _offset)
     {
         shootOffset_ = _offset;
     }
+    // プレイヤーの位置に向かって弾を撃つ攻撃
+    void AimAtPlayerShoot();
+
+    
 };
 

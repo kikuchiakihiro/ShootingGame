@@ -64,6 +64,10 @@ void EM_Bullet::Release()
 {
 }
 
-
+void EM_Bullet::SetBulletImage(const std::string& imagePath)
+{
+    EM_Bullet_Pict_ = Image::Load(imagePath.c_str());
+    assert(EM_Bullet_Pict_ >= 0);
+}
 
 

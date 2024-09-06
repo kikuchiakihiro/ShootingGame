@@ -36,6 +36,6 @@ public:
     }
     void SetAngle(float _angle){angle_ = _angle;}
     
-   
+    void SetBulletImage(const std::string& imagePath);  // ‰æ‘œ‚ğØ‚è‘Ö‚¦‚éƒƒ\ƒbƒh
 };
 

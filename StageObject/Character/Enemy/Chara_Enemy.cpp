@@ -6,13 +6,15 @@
 #include "../../Attack/Big_Bullet.h"
 #include <chrono>
 #include "../../../Engine/SceneManager.h"
+#include "../../Character/Chara_Player.h"
 
 
 
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(100), shootInterval_(0.5f), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(100), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, shootDuration_(3.0f), intervalTime_(1.0f), currentTime_(0.0f), attackState_(ATTACK)
 {
 	
 }
@@ -45,7 +47,7 @@ void Chara_Enemy::Update()
 	rengeTime_++;
 	// 体力に応じて状態を変更
 	ChangeHealthState();
-
+	
 	// 現在の状態に応じた攻撃を実行
 	switch (currentState_)
 	{
@@ -53,11 +55,12 @@ void Chara_Enemy::Update()
 		Spiralshoot();  // 体力が高い時の攻撃
 		break;
 	case MEDIUMHEALTH:
-		BigShoot();  // 体力が中くらいの時の攻撃
+		AimAtPlayerShoot();
 		break;
 	case LOWHEALTH:
 		Spiralshoot();
 		BigShoot();  // 体力が低い時の攻撃
+		AimAtPlayerShoot();
 		break;
 	default:
 		break;
@@ -161,3 +164,57 @@ void Chara_Enemy::BigShoot()
 	}
 }
 
+void Chara_Enemy::AimAtPlayerShoot()
+{
+	Chara_Player* pPlayer = dynamic_cast<Chara_Player*>(FindObject("Chara_Player"));
+	if (pPlayer)
+	{
+		currentTime_ += 0.01f;  // フレームごとの時間加算（例として0.01秒）
+
+		switch (attackState_)
+		{
+		case ATTACK:
+			if (currentTime_ <= shootDuration_)
+			{
+				// プレイヤーの位置を取得して、角度を計算
+				XMFLOAT3 playerPosition = pPlayer->GetPosition();
+				XMFLOAT3 enemyPosition = transform_.position_;
+
+				float deltaX = playerPosition.x - enemyPosition.x;
+				float deltaY = playerPosition.y - enemyPosition.y;
+				float angle = atan2f(deltaY, deltaX) * 180.0f / XM_PI;
+
+				// 弾を発射
+				if (timeSinceLastShot_ >= shootOffset_)  // 弾の発射間隔
+				{
+					EM_Bullet* pBullet = Instantiate<EM_Bullet>(GetParent());
+					pBullet->SetPosition(enemyPosition);
+					pBullet->SetAngle(angle);
+
+					pBullet->SetBulletImage("Bullet/Boss_Bullet_Y.png");  // 自機狙いの弾の画像をセット
+					timeSinceLastShot_ = 0.0f;  // 最後に発射した時間をリセット
+				}
+				else
+				{
+					timeSinceLastShot_ += 0.01f;  // フレームごとの時間加算
+				}
+			}
+			else
+			{
+				// 攻撃終了、インターバルに切り替える
+				attackState_ = INTERVAL;
+				currentTime_ = 0.0f;  // インターバルの時間を追跡
+			}
+			break;
+
+		case INTERVAL:
+			if (currentTime_ >= intervalTime_)
+			{
+				// インターバル終了、再び攻撃に切り替える
+				attackState_ = ATTACK;
+				currentTime_ = 0.0f;  // 攻撃時間をリセット
+			}
+			break;
+		}
+	}
+}
