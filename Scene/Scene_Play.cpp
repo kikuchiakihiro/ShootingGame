@@ -5,6 +5,7 @@
 #include "../StageObject/BackGround/bg_ScoreBoard.h"
 #include "../StageObject/Timer/Timer.h"
 #include "../StageObject/Score/Score.h"
+#include "../StageObject/Sound/Stage_Sound.h"
 Scene_Play::Scene_Play(GameObject* parent)
 	: GameObject(parent, "Scene_Play")
 {
@@ -12,13 +13,13 @@ Scene_Play::Scene_Play(GameObject* parent)
 
 void Scene_Play::Initialize()
 {
+	Instantiate<Stage_Sound>(this);
 	Instantiate<bg_ScoreBoard>(this);
 	Instantiate<bg_Stage1>(this);
 	Instantiate<Chara_Player>(this);
 	Instantiate<Chara_Enemy>(this);
 	Instantiate<Timer>(this);
 	Instantiate<Score>(this);
-	
 }
 
 void Scene_Play::Update()

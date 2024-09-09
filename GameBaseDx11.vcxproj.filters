@@ -45,6 +45,9 @@
     <Filter Include="StageObject\Gauge">
       <UniqueIdentifier>{1848743a-3445-472c-b19b-b38505a1a110}</UniqueIdentifier>
     </Filter>
+    <Filter Include="StageObject\Sound">
+      <UniqueIdentifier>{942ad18f-5df0-4a05-82dd-547cb949b0db}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Engine\BoxCollider.cpp">
@@ -155,6 +158,12 @@
     <ClCompile Include="StageObject\Score\Score.cpp">
       <Filter>StageObject\Score</Filter>
     </ClCompile>
+    <ClCompile Include="Scene\Scene_StageSelect.cpp">
+      <Filter>Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject\Sound\Stage_Sound.cpp">
+      <Filter>StageObject\Sound</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -264,6 +273,12 @@
     </ClInclude>
     <ClInclude Include="StageObject\Score\Score.h">
       <Filter>StageObject\Score</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene\Scene_StageSelect.h">
+      <Filter>Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\Sound\Stage_Sound.h">
+      <Filter>StageObject\Sound</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

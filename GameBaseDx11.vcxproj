@@ -152,6 +152,7 @@
     <ClCompile Include="Scene\Scene_ClearResult.cpp" />
     <ClCompile Include="Scene\Scene_GameOver.cpp" />
     <ClCompile Include="Scene\Scene_Play.cpp" />
+    <ClCompile Include="Scene\Scene_StageSelect.cpp" />
     <ClCompile Include="Scene\Scene_Title.cpp" />
     <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
@@ -163,6 +164,7 @@
     <ClCompile Include="StageObject\Character\Enemy\Chara_Enemy.cpp" />
     <ClCompile Include="StageObject\Gauge\Boss_HpGauge.cpp" />
     <ClCompile Include="StageObject\Score\Score.cpp" />
+    <ClCompile Include="StageObject\Sound\Stage_Sound.cpp" />
     <ClCompile Include="StageObject\Timer\Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -192,6 +194,7 @@
     <ClInclude Include="Scene\Scene_ClearResult.h" />
     <ClInclude Include="Scene\Scene_GameOver.h" />
     <ClInclude Include="Scene\Scene_Play.h" />
+    <ClInclude Include="Scene\Scene_StageSelect.h" />
     <ClInclude Include="Scene\Scene_Title.h" />
     <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
     <ClInclude Include="StageObject\Attack\Bullet.h" />
@@ -203,6 +206,7 @@
     <ClInclude Include="StageObject\Character\Enemy\Chara_Enemy.h" />
     <ClInclude Include="StageObject\Gauge\Boss_HpGauge.h" />
     <ClInclude Include="StageObject\Score\Score.h" />
+    <ClInclude Include="StageObject\Sound\Stage_Sound.h" />
     <ClInclude Include="StageObject\Timer\Timer.h" />
   </ItemGroup>
   <ItemGroup>

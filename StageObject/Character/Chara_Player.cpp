@@ -81,6 +81,8 @@ void Chara_Player::Move()
     transform_.position_.y = max(minScreen, min(transform_.position_.y, maxScreenY - chara_height_));
 }
 
+
+
 void Chara_Player::Shot()
 {
     //通常弾の発射はスペースキー
@@ -105,6 +107,5 @@ void Chara_Player::OnCollision(GameObject* pTarget)
         SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
         pSceneManager->ChangeScene(SCENE_ID_GAMEOVER);
     }
-   
 }
 

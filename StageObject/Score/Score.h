@@ -6,8 +6,8 @@ class Score : public GameObject
 {
 private:
     Text* pText;
-     int score_;  // スコアの変数
-    static int finalScore_;         // 最終スコアを保持
+    int score_;  // スコアの変数
+    inline static int finalScore_ = 0;         // 最終スコアを保持
     float timer_;  // タイマー用の変数
     int drawX, drawY; //表示位置
     bool isCounting_; // スコアのカウントが有効かどうか

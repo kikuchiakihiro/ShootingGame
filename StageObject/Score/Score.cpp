@@ -1,6 +1,5 @@
 #include "Score.h"
 
-int Score::finalScore_ = 0;
 
 Score::Score(GameObject* parent)
     : GameObject(parent, "Score"), pText(nullptr), timer_(0.0f), drawX(0), drawY(0),isCounting_(true)

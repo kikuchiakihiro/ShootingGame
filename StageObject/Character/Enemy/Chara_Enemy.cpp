@@ -13,20 +13,17 @@
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(10), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(100), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 	, shootDuration_(3.0f), intervalTime_(1.0f), currentTime_(0.0f), attackState_(ATTACK)
 {
-	
 }
 
 Chara_Enemy::~Chara_Enemy()
 {
-
 }
 
 void Chara_Enemy::Initialize()
 {
-	
 	// 画像データのロード
 	enemy_Pict_ = Image::Load("Character/Boss_Space_512.png");
 	assert(enemy_Pict_ >= 0);
@@ -101,7 +98,7 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 		if (enemy_Health_ <= 0)  // 体力が0以下なら消滅
 		{
 			
-			
+			score->AddScore(10000);
 			score->StopCounting();
 			score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
 			this->KillMe();
