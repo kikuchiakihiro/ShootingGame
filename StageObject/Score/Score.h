@@ -43,7 +43,10 @@ public:
     void StartCounting();
 
     // 新しい関数
-    static int GetFinalScore();   // 最終スコアを取得
+    static int GetFinalScore()
+    {
+        return Score::finalScore_;
+    };   // 最終スコアを取得
 
     void SaveFinalScore();       // 最終スコアを保存
 };

@@ -1,6 +1,6 @@
 #include "Score.h"
 
-
+int Score::finalScore_ = 0;
 
 Score::Score(GameObject* parent)
     : GameObject(parent, "Score"), pText(nullptr), timer_(0.0f), drawX(0), drawY(0),isCounting_(true)
@@ -66,13 +66,11 @@ void Score::StartCounting()
 // 最終スコアを保存
 void Score::SaveFinalScore()
 {
-    finalScore_ = score_;
+     Score::finalScore_ = score_;
 }
 
-// 最終スコアを取得
-int Score::GetFinalScore() 
-{
-    return finalScore_;
-}
+
+
+
 
 

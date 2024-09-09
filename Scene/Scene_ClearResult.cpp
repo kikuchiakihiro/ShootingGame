@@ -11,10 +11,8 @@ void Scene_ClearResult::Initialize()
 	pText->Initialize();
 
 	// スコアマネージャーから最終スコアを取得
-	Score* score = dynamic_cast<Score*>(FindObject("Score"));
-	if (score != nullptr)
 	{
-		finalScore_ = *score::GetFinalScore();  // 保存された最終スコアを取得
+		finalScore_ = Score::GetFinalScore();  // 保存された最終スコアを取得
 	}
 }
 

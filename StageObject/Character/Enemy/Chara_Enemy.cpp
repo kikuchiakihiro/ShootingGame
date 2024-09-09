@@ -96,8 +96,6 @@ void Chara_Enemy::OnCollision(GameObject* pTarget)
 		
 		
 			score->AddScore(100);
-
-			
 				
 			
 		if (enemy_Health_ <= 0)  // ‘Ì—Í‚ª0ˆÈ‰º‚È‚çÁ–Å
