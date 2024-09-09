@@ -15,6 +15,7 @@ private:
     int enemy_Pict_;
     int enemy_Health_;  // ‘Ì—Í
     int rengeTime_;
+    int nowScore_;
 
     float rengeAngle_;
     float shotAngle_;
@@ -28,6 +29,7 @@ private:
     AttackState attackState_;
     EnemyState currentState_;
     Boss_HpGauge* Hp = new Boss_HpGauge(this);
+   
 
 public:
    

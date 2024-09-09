@@ -6,7 +6,7 @@ class Scene_ClearResult : public GameObject
 {
 private:
 	Text* pText;
-	
+	int finalScore_;  // 保存された最終スコア
 	int drawX, drawY; //表示位置
 	
 public:

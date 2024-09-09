@@ -13,7 +13,7 @@
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(100), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(10), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 	, shootDuration_(3.0f), intervalTime_(1.0f), currentTime_(0.0f), attackState_(ATTACK)
 {
 	
@@ -43,7 +43,7 @@ void Chara_Enemy::Initialize()
 
 void Chara_Enemy::Update()
 {
-
+	
 	rengeTime_++;
 	// 体力に応じて状態を変更
 	ChangeHealthState();
@@ -86,20 +86,26 @@ void Chara_Enemy::Release()
 
 void Chara_Enemy::OnCollision(GameObject* pTarget)
 {
+	Score* score = dynamic_cast<Score*>(FindObject("Score"));
 	// 当たったときの処理
-	if (pTarget->GetObjectName() == "Bullet")
+ 	if (pTarget->GetObjectName() == "Bullet")
 	{
 		enemy_Health_--;  // 体力を1減らす
 		Hp->SetHealth(enemy_Health_);  // 体力ゲージを更新
 		// スコアを100点加算
 		
-		Score* score = dynamic_cast<Score*>(FindObject("Score"));
 		
 			score->AddScore(100);
-		
+
+			
+				
+			
 		if (enemy_Health_ <= 0)  // 体力が0以下なら消滅
 		{
+			
+			
 			score->StopCounting();
+			score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
 			this->KillMe();
 			SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
 			pSceneManager->ChangeScene(SCENE_ID_CLEARRESULT);

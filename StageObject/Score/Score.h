@@ -7,14 +7,15 @@ class Score : public GameObject
 private:
     Text* pText;
      int score_;  // スコアの変数
-    int savedScore_;
+    static int finalScore_;         // 最終スコアを保持
     float timer_;  // タイマー用の変数
     int drawX, drawY; //表示位置
     bool isCounting_; // スコアのカウントが有効かどうか
-
+   
 public:
+
+    
     // コンストラクタ
-  
     Score(GameObject* parent);
 
     // デストラクタ
@@ -41,7 +42,8 @@ public:
     // スコアのカウントを再開する（必要に応じて）
     void StartCounting();
 
-    void SetSaveScore() { savedScore_ = score_; }
+    // 新しい関数
+    static int GetFinalScore();   // 最終スコアを取得
 
-    int GetScore()  { return savedScore_; }
+    void SaveFinalScore();       // 最終スコアを保存
 };
