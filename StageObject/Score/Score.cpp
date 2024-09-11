@@ -20,16 +20,16 @@ void Score::Initialize()
 
 void Score::Update()
 {
-    if (isCounting_)
-    {
-        // 0.01秒ごとにスコアを1増やす
-        timer_ += 0.01f;
-        if (timer_ >= 0.01f)
-        {
-            score_ += 1;
-            timer_ -= 0.01f;  // タイマーをリセット
-        }
-    }
+    //if (isCounting_)
+    //{
+    //    // 0.01秒ごとにスコアを1増やす
+    //    timer_ += 0.01f;
+    //    if (timer_ >= 0.01f)
+    //    {
+    //        score_ += 1;
+    //        timer_ -= 0.01f;  // タイマーをリセット
+    //    }
+    //}
 
   
 }
