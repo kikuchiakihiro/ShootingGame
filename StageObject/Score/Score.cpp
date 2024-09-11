@@ -20,16 +20,16 @@ void Score::Initialize()
 
 void Score::Update()
 {
-    //if (isCounting_)
-    //{
-    //    // 0.01秒ごとにスコアを1増やす
-    //    timer_ += 0.01f;
-    //    if (timer_ >= 0.01f)
-    //    {
-    //        score_ += 1;
-    //        timer_ -= 0.01f;  // タイマーをリセット
-    //    }
-    //}
+    if (isCounting_)
+    {
+        // 0.01秒ごとにスコアを1増やす
+        timer_ += 0.01f;
+        if (timer_ >= 0.01f)
+        {
+            score_ += 1;
+            timer_ -= 0.01f;  // タイマーをリセット
+        }
+    }
 
   
 }
@@ -66,7 +66,17 @@ void Score::StartCounting()
 void Score::SaveFinalScore()
 {
      Score::finalScore_ = score_;
+     UpdateHighScore();     // ハイスコアをチェックして更新
 }
+
+void Score::UpdateHighScore()
+{
+    if (Score::finalScore_ > Score::highScore_)
+    {
+        Score::highScore_ = Score::finalScore_;  // ハイスコアを更新
+    }
+}
+
 
 
 

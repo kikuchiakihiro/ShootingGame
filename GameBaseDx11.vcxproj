@@ -157,6 +157,8 @@
     <ClCompile Include="StageObject\Attack\Big_Bullet.cpp" />
     <ClCompile Include="StageObject\Attack\Bullet.cpp" />
     <ClCompile Include="StageObject\Attack\EM_Bullet.cpp" />
+    <ClCompile Include="StageObject\BackGround\bg_Clear.cpp" />
+    <ClCompile Include="StageObject\BackGround\bg_GameOver.cpp" />
     <ClCompile Include="StageObject\BackGround\bg_ScoreBoard.cpp" />
     <ClCompile Include="StageObject\BackGround\bg_Stage1.cpp" />
     <ClCompile Include="StageObject\BackGround\bg_Title.cpp" />
@@ -199,6 +201,8 @@
     <ClInclude Include="StageObject\Attack\Big_Bullet.h" />
     <ClInclude Include="StageObject\Attack\Bullet.h" />
     <ClInclude Include="StageObject\Attack\EM_Bullet.h" />
+    <ClInclude Include="StageObject\BackGround\bg_Clear.h" />
+    <ClInclude Include="StageObject\BackGround\bg_GameOver.h" />
     <ClInclude Include="StageObject\BackGround\bg_ScoreBoard.h" />
     <ClInclude Include="StageObject\BackGround\bg_Stage1.h" />
     <ClInclude Include="StageObject\BackGround\bg_Title.h" />

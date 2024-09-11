@@ -164,6 +164,12 @@
     <ClCompile Include="StageObject\Sound\Stage_Sound.cpp">
       <Filter>StageObject\Sound</Filter>
     </ClCompile>
+    <ClCompile Include="StageObject\BackGround\bg_GameOver.cpp">
+      <Filter>StageObject\BackGround</Filter>
+    </ClCompile>
+    <ClCompile Include="StageObject\BackGround\bg_Clear.cpp">
+      <Filter>StageObject\BackGround</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Engine\BoxCollider.h">
@@ -279,6 +285,12 @@
     </ClInclude>
     <ClInclude Include="StageObject\Sound\Stage_Sound.h">
       <Filter>StageObject\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\BackGround\bg_GameOver.h">
+      <Filter>StageObject\BackGround</Filter>
+    </ClInclude>
+    <ClInclude Include="StageObject\BackGround\bg_Clear.h">
+      <Filter>StageObject\BackGround</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

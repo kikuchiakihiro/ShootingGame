@@ -67,6 +67,6 @@ public:
     // プレイヤーの位置に向かって弾を撃つ攻撃
     void AimAtPlayerShoot();
 
-    
+    void WaveShoot();
 };
 

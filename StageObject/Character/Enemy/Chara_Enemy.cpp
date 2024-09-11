@@ -49,7 +49,7 @@ void Chara_Enemy::Update()
 	switch (currentState_)
 	{
 	case HIGHHEALTH:
-		Spiralshoot();  // 体力が高い時の攻撃
+		WaveShoot();  // 体力が高い時の攻撃
 		break;
 	case MEDIUMHEALTH:
 		AimAtPlayerShoot();
@@ -218,4 +218,34 @@ void Chara_Enemy::AimAtPlayerShoot()
 			break;
 		}
 	}
+}
+
+void Chara_Enemy::WaveShoot()
+{
+	// 発射タイミングの設定
+	if (rengeTime_ % 30 == 0)  // 例: 30フレームごとに発射
+	{
+		const int numBullets = 50;  // 発射する弾の数
+		const float waveFrequency = 0.1f;  // 波の周波数（調整可能）
+		const float waveAmplitude = 1.0f;  // 波の振幅（調整可能）
+
+		// 弾の発射位置を設定
+		XMFLOAT3 startPosition = { transform_.position_.x, transform_.position_.y, transform_.position_.z };
+
+		for (int i = 0; i < numBullets; i++)
+		{
+			EM_Bullet* pBullet = Instantiate<EM_Bullet>(GetParent());
+			float angle = i * (360.0f / numBullets);  // 弾の角度を均等に分配
+
+			// 波状の位置を計算
+			float waveOffset = waveAmplitude * sinf(waveFrequency * rengeTime_ + XMConvertToRadians(angle));
+			XMFLOAT3 bulletPosition = { startPosition.x + waveOffset, startPosition.y, startPosition.z };
+
+			pBullet->SetPosition(bulletPosition);
+			pBullet->SetAngle(angle);  // 弾の角度を設定
+		}
+	}
+
+	// 波状弾幕の発射に合わせて敵の状態を更新するなど
+	// ここに他の攻撃パターンや状態管理のコードを追加することができます。
 }

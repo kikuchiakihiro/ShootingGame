@@ -1,13 +1,15 @@
 #pragma once
 #include "../../Engine/GameObject.h"
 #include "../../Engine/Text.h"
-
+#include <vector>
+#include <algorithm>
 class Score : public GameObject
 {
 private:
     Text* pText;
     int score_;  // スコアの変数
     inline static int finalScore_ = 0;         // 最終スコアを保持
+    inline static int highScore_ = 0;          // ハイスコアを保持
     float timer_;  // タイマー用の変数
     int drawX, drawY; //表示位置
     bool isCounting_; // スコアのカウントが有効かどうか
@@ -49,4 +51,14 @@ public:
     };   // 最終スコアを取得
 
     void SaveFinalScore();       // 最終スコアを保存
+
+    // ハイスコアを取得
+    static int GetHighScore()
+    {
+        return highScore_;
+    }
+
+    // ハイスコアを更新する（最終スコアがハイスコアより高かった場合）
+    void UpdateHighScore();
+   
 };
