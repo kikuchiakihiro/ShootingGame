@@ -1,7 +1,7 @@
 #pragma once
 #include "../../Engine/GameObject.h"
 #include "../Attack/Bullet.h"
-
+#include <chrono> // タイマー用のライブラリ
 class Chara_Player : public GameObject
 {
 private:
@@ -15,7 +15,9 @@ private:
     float minScreen;
     float chara_speed_;
 
-
+    float fireInterval_;  // 弾の発射間隔（秒）
+    std::chrono::time_point<std::chrono::steady_clock> lastFireTime_;  // 最後に弾を発射した時間
+   
 public:
     // コンストラクタ
     Chara_Player(GameObject* parent);

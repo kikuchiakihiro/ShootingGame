@@ -5,11 +5,14 @@
 #include "../../Engine/SphereCollider.h"
 #include "../../StageObject/Score/Score.h"
 #include "../../Engine/SceneManager.h"
+#include "../../Scene/Scene_Title.h"
 Chara_Player::Chara_Player(GameObject* parent)
     : GameObject(parent, "Chara_Player"), chara_Pict_(-1), chara_speed_(0.01f), chara_width_(64.f), chara_height_(64.f)
-    , screenWidth_(1280.f), screenHeight_(720.f),maxScreenX(64.47f), maxScreenY(65.f),minScreen(-0.97f)
+    , screenWidth_(1280.f), screenHeight_(720.f),maxScreenX(64.47f), maxScreenY(65.f),minScreen(-0.97f), fireInterval_(0.15f)
     
 {
+    // コンストラクタで最後の発射時間を現在時間に設定
+    lastFireTime_ = std::chrono::steady_clock::now();
 }
 
 Chara_Player::~Chara_Player()
@@ -85,11 +88,32 @@ void Chara_Player::Move()
 
 void Chara_Player::Shot()
 {
-    //通常弾の発射はスペースキー
-    if (Input::IsKeyDown(DIK_SPACE))
+    // 現在の時間を取得
+    auto currentTime = std::chrono::steady_clock::now();
+
+    // 前回の発射時間からの経過時間を計算
+    std::chrono::duration<float> elapsedTime = currentTime - lastFireTime_;
+
+    if (Scene_Title::IsAutoFireEnabled())
     {
-        Bullet* pBullet = Instantiate<Bullet>(GetParent());
-        pBullet->SetPosition(transform_.position_);
+        // 自動発射モードの場合、0.5秒ごとに弾を発射
+        if (elapsedTime.count() >= fireInterval_)
+        {
+            Bullet* pBullet = Instantiate<Bullet>(GetParent());
+            pBullet->SetPosition(transform_.position_);
+
+            // 発射した時間を更新
+            lastFireTime_ = currentTime;
+        }
+    }
+    else
+    {
+        // 手動発射モード（スペースキーで発射）
+        if (Input::IsKeyDown(DIK_SPACE))
+        {
+            Bullet* pBullet = Instantiate<Bullet>(GetParent());
+            pBullet->SetPosition(transform_.position_);
+        }
     }
 }
 

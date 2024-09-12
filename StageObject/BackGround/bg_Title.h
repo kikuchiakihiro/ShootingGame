@@ -4,7 +4,7 @@ class bg_Title : public GameObject
 {
 private:
     int bg_Pict_;
-
+    
 public:
     //コンストラクタ
     bg_Title(GameObject* parent);
@@ -23,6 +23,8 @@ public:
 
     //開放
     void Release() override;
+
+   
 };
 
 

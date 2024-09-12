@@ -13,7 +13,7 @@
 
 Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
-	, enemy_Health_(100), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
+	, enemy_Health_(500), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 	, shootDuration_(3.0f), intervalTime_(1.0f), currentTime_(0.0f), attackState_(ATTACK)
 {
 }
