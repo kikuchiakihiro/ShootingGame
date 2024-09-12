@@ -49,7 +49,8 @@ void Chara_Enemy::Update()
 	switch (currentState_)
 	{
 	case HIGHHEALTH:
-		WaveShoot();  // ‘Ì—Í‚ª‚‚¢‚ÌUŒ‚
+		Spiralshoot();
+		//WaveShoot();  // ‘Ì—Í‚ª‚‚¢‚ÌUŒ‚
 		break;
 	case MEDIUMHEALTH:
 		AimAtPlayerShoot();
