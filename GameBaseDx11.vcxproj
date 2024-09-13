@@ -72,19 +72,19 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\include</IncludePath>
-    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\release</LibraryPath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\include</IncludePath>
-    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\release</LibraryPath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\include</IncludePath>
-    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\release</LibraryPath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\include</IncludePath>
-    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\debug;C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\release</LibraryPath>
+    <LibraryPath>C:\Program Files\Autodesk\FBX\FBX SDK\2020.3.7\lib\x64\release;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -114,6 +114,7 @@
       <SDLCheck>true</SDLCheck>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>

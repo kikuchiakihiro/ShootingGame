@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Engine/GameObject.h"
-#include "../../../../../Engine/Text.h"
+//#include "../../../../../Engine/Text.h"
+#include "../../Engine/Text.h"
 #include "../../StageObject/Score/Score.h"
 class bg_Clear : public GameObject
 {

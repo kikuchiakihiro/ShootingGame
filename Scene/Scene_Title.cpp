@@ -1,6 +1,8 @@
 #include "Scene_Title.h"
-#include "../../../../../StageObject/BackGround/bg_Title.h"
-#include "../../../../../Engine/SceneManager.h"
+//#include "../../../../../StageObject/BackGround/bg_Title.h"
+//#include "../../../../../Engine/SceneManager.h"
+#include "../StageObject/BackGround/bg_Title.h"
+#include "../Engine/SceneManager.h"
 #include "../Engine/Input.h"
 Scene_Title::Scene_Title(GameObject* parent)
 	: GameObject(parent, "Scene_Title")

@@ -1,7 +1,8 @@
 #include "Scene_ClearResult.h"
 #include "../StageObject/Score/Score.h"
 #include "../StageObject/BackGround/bg_Clear.h"
-#include "../../../../../Engine/SceneManager.h"
+//#include "../../../../../Engine/SceneManager.h"
+#include "../Engine/SceneManager.h"
 #include "../Engine/Input.h"
 Scene_ClearResult::Scene_ClearResult(GameObject* parent)
 	:GameObject(parent, "Scene_ClearResult")

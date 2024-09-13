@@ -1,5 +1,6 @@
 #pragma once
-#include "../../../../../Engine/GameObject.h"
+//#include "../../../../../Engine/GameObject.h"
+#include "../Engine/GameObject.h"
 class Scene_GameOver : public GameObject
 {
 private:

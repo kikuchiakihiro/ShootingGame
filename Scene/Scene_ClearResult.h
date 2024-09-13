@@ -1,6 +1,8 @@
 #pragma once
-#include "../../../../../Engine/GameObject.h"
-#include "../../../../../Engine/Text.h"
+//#include "../../../../../Engine/GameObject.h"
+//#include "../../../../../Engine/Text.h"
+#include "../Engine/GameObject.h"
+#include "../Engine/Text.h"
 #include "../StageObject/Score/Score.h"
 class Scene_ClearResult : public GameObject
 {

@@ -1,6 +1,7 @@
 #include "Scene_GameOver.h"
 #include "../StageObject/BackGround/bg_GameOver.h"
-#include "../../../../../Engine/SceneManager.h"
+//#include "../../../../../Engine/SceneManager.h"
+#include "../Engine/SceneManager.h"
 #include "../Engine/Input.h"
 Scene_GameOver::Scene_GameOver(GameObject* parent)
 :GameObject(parent, "Scene_GameOver")
