@@ -41,8 +41,8 @@ void Big_Bullet::Update()
     float screenHeight = 0.1f;
 
 
-    float bulletWidth = 1.f; // —á: ’e‚Ì•
-    float bulletHeight = 1.f; // —á: ’e‚Ì‚‚³
+    float bulletWidth = 2.f; // —á: ’e‚Ì•
+    float bulletHeight = 2.f; // —á: ’e‚Ì‚‚³
 
     // ‰æ–ÊŠO‚Éo‚½ê‡‚Ì”»’è
     if (transform_.position_.x < -bulletWidth || transform_.position_.x > screenWidth + bulletWidth ||

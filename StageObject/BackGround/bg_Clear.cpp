@@ -1,5 +1,4 @@
 #include "bg_Clear.h"
-#include "../../StageObject/Score/Score.h"
 #include "../../Engine/Image.h"
 bg_Clear::bg_Clear(GameObject* parent)
 	: GameObject(parent, "bg_Clear"), bg_Pict_(-1)

@@ -96,6 +96,16 @@ void Chara_Player::Shot()
 
     if (Scene_Title::IsAutoFireEnabled())
     {
+        // 手動発射モード（スペースキーで発射）
+        if (Input::IsKeyDown(DIK_SPACE))
+        {
+            Bullet* pBullet = Instantiate<Bullet>(GetParent());
+            pBullet->SetPosition(transform_.position_);
+        }
+    }
+    else
+    {
+       
         // 自動発射モードの場合、0.5秒ごとに弾を発射
         if (elapsedTime.count() >= fireInterval_)
         {
@@ -104,15 +114,6 @@ void Chara_Player::Shot()
 
             // 発射した時間を更新
             lastFireTime_ = currentTime;
-        }
-    }
-    else
-    {
-        // 手動発射モード（スペースキーで発射）
-        if (Input::IsKeyDown(DIK_SPACE))
-        {
-            Bullet* pBullet = Instantiate<Bullet>(GetParent());
-            pBullet->SetPosition(transform_.position_);
         }
     }
 }
@@ -126,6 +127,7 @@ void Chara_Player::OnCollision(GameObject* pTarget)
         || pTarget->GetObjectName() == "Big_Bullet")
     {
         score->StopCounting();
+        score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
         this->KillMe();
         pTarget->KillMe();
         SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");

@@ -4,15 +4,18 @@
 
 enum  EnemyState
 {
-    HIGHHEALTH,   // ‘Ì—Í‚ª‚‚¢‚Ìó‘Ô
-    MEDIUMHEALTH, // ‘Ì—Í‚ª’†‚­‚ç‚¢‚Ì‚Ìó‘Ô
-    LOWHEALTH     // ‘Ì—Í‚ª’á‚¢‚Ìó‘Ô
+    WAVE1,  
+    WAVE2, 
+    WAVE3,
+    WAVE4,
+    WAVE5 
 };
 enum AttackState { ATTACK, INTERVAL } ; // UŒ‚ó‘Ô
 class Chara_Enemy : public GameObject
 {
 private:
-    int enemy_Pict_;
+    int normalImage_;
+    int previousImage_;
     int enemy_Health_;  // ‘Ì—Í
     int rengeTime_;
     int nowScore_;
@@ -30,6 +33,9 @@ private:
     EnemyState currentState_;
     Boss_HpGauge* Hp = new Boss_HpGauge(this);
    
+    
+
+  
 
 public:
    
@@ -53,6 +59,8 @@ public:
 
     void OnCollision(GameObject* pTarget) override;
 
+ 
+
     void ChangeHealthState();  // ‘Ì—Í‚É‰‚¶‚Äó‘Ô‚ğ•ÏX
 
     void Spiralshoot();
@@ -68,5 +76,7 @@ public:
     void AimAtPlayerShoot();
 
     void WaveShoot();
+
+    void SpreadShoot();
 };
 

@@ -1,10 +1,14 @@
 #pragma once
 #include "../../Engine/GameObject.h"
+#include "../../Engine/Text.h"
+#include "../../StageObject/Score/Score.h"
 class bg_GameOver : public GameObject
 {
 private:
     int bg_Pict_;
-
+    int drawX, drawY; //表示位置
+    Text* pText;
+    int finalScore_;  // 保存された最終スコア
 public:
     //コンストラクタ
     bg_GameOver(GameObject* parent);

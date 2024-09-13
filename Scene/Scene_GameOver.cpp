@@ -19,6 +19,11 @@ void Scene_GameOver::Update()
 		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
 		pSceneManager->ChangeScene(SCENE_ID_PLAY);
 	}
+	if (Input::IsKeyDown(DIK_ESCAPE))
+	{
+		SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+		pSceneManager->ChangeScene(SCENE_ID_TITLE);
+	}
 }
 
 void Scene_GameOver::Draw()
