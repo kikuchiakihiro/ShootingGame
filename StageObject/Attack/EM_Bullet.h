@@ -41,6 +41,8 @@ public:
     //ŠJ•ú
     void Release() override;
 
+    void OnCollision(GameObject* pTarget) override;
+
     void SetPosition(XMFLOAT3 _position)
     {
         transform_.position_.x = _position.x;

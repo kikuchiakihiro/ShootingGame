@@ -9,7 +9,7 @@
 Chara_Player::Chara_Player(GameObject* parent)
     : GameObject(parent, "Chara_Player"), chara_Pict_(-1), chara_speed_(0.01f), chara_width_(64.f), chara_height_(64.f)
     , screenWidth_(1280.f), screenHeight_(720.f),maxScreenX(64.47f), maxScreenY(65.f),minScreen(-0.97f), fireInterval_(0.15f)
-    
+    ,player_Hp(2),isInvincible_(false),invincibleDuration_(2.0f)
 {
     // コンストラクタで最後の発射時間を現在時間に設定
     lastFireTime_ = std::chrono::steady_clock::now();
@@ -28,17 +28,41 @@ void Chara_Player::Initialize()
     SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.00005f);
     AddCollider(collision);
 
-    transform_.position_ = { -0.25f,-0.5f,0.0f };
+    transform_.position_ = { -0.25f,-0.65f,0.0f };
 }
 
 void Chara_Player::Update()
 {
+    // 無敵状態を監視し、時間が経過したら無敵を解除
+    if (isInvincible_)
+    {
+        auto currentTime = std::chrono::steady_clock::now();
+        std::chrono::duration<float> elapsedTime = currentTime - invincibleStartTime_;
+
+        if (elapsedTime.count() >= invincibleDuration_)
+        {
+            isInvincible_ = false;
+            Image::SetAlpha(chara_Pict_, 255); // 無敵解除時に透明度を元に戻す
+        }
+    }
     Move();  // 移動処理を呼び出す
     Shot();
+    
 }
 
 void Chara_Player::Draw()
 {
+    if (isInvincible_)
+    {
+        // 無敵中はキャラクターの透明度を50%にする
+        Image::SetAlpha(chara_Pict_, 128);
+    }
+    else
+    {
+        // 通常状態
+        Image::SetAlpha(chara_Pict_, 255);
+    }
+
     Image::SetTransform(chara_Pict_, transform_);
     Image::Draw(chara_Pict_);
 }
@@ -121,17 +145,43 @@ void Chara_Player::Shot()
 void Chara_Player::OnCollision(GameObject* pTarget)
 {
     Score* score = dynamic_cast<Score*>(FindObject("Score"));
+
+    // 無敵状態なら何もしない
+    if (isInvincible_)
+    {
+        // 無敵時間が経過したかチェック
+        auto currentTime = std::chrono::steady_clock::now();
+        std::chrono::duration<float> elapsedTime = currentTime - invincibleStartTime_;
+        if (elapsedTime.count() >= invincibleDuration_)
+        {
+            isInvincible_ = false; // 無敵状態解除
+            Image::SetAlpha(chara_Pict_, 255); // 透明度を元に戻す
+        }
+        else
+        {
+            return; // 無敵状態中なのでダメージを無効化
+        }
+    }
+
     //当たったときの処理
     //敵に当たるか弾に当たるかでピチュンします
     if (pTarget->GetObjectName() == "Chara_Enemy"|| pTarget->GetObjectName() == "EM_Bullet"
         || pTarget->GetObjectName() == "Big_Bullet")
     {
-        score->StopCounting();
-        score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
-        this->KillMe();
-        pTarget->KillMe();
-        SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
-        pSceneManager->ChangeScene(SCENE_ID_GAMEOVER);
+        if (player_Hp <= 0)
+        {
+            score->StopCounting();
+            score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
+            this->KillMe();
+            SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
+            pSceneManager->ChangeScene(SCENE_ID_GAMEOVER);
+        }
+        else
+        {
+            player_Hp--;
+            isInvincible_ = true; // 無敵状態にする
+            invincibleStartTime_ = std::chrono::steady_clock::now(); // 無敵時間の開始
+        }
     }
 }
 

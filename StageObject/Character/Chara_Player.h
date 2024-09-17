@@ -18,6 +18,10 @@ private:
     float fireInterval_;  // 弾の発射間隔（秒）
     std::chrono::time_point<std::chrono::steady_clock> lastFireTime_;  // 最後に弾を発射した時間
    
+    int player_Hp;
+    bool isInvincible_; // 無敵状態かどうか
+    std::chrono::steady_clock::time_point invincibleStartTime_; // 無敵状態の開始時間
+    float invincibleDuration_; // 無敵時間（例: 2秒間）
 public:
     // コンストラクタ
     Chara_Player(GameObject* parent);

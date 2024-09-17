@@ -1,7 +1,7 @@
 #pragma once
 #include "../../../Engine/GameObject.h"
 #include "../../Gauge/Boss_HpGauge.h"
-
+#include <chrono> // タイマー用のライブラリ
 enum  EnemyState
 {
     WAVE1,  
@@ -14,7 +14,7 @@ enum AttackState { ATTACK, INTERVAL } ; // 攻撃状態
 class Chara_Enemy : public GameObject
 {
 private:
-    int normalImage_;
+    int enemy_Pict_;
     int previousImage_;
     int enemy_Health_;  // 体力
     int rengeTime_;
@@ -33,7 +33,9 @@ private:
     EnemyState currentState_;
     Boss_HpGauge* Hp = new Boss_HpGauge(this);
    
-    
+    bool isInvincible_; // 無敵状態かどうか
+    std::chrono::steady_clock::time_point invincibleStartTime_; // 無敵状態の開始時間
+    float invincibleDuration_; // 無敵時間（例: 2秒間）
 
   
 
