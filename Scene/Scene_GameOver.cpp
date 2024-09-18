@@ -34,4 +34,5 @@ void Scene_GameOver::Draw()
 
 void Scene_GameOver::Release()
 {
+
 }

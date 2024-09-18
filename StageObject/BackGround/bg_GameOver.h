@@ -5,7 +5,7 @@
 class bg_GameOver : public GameObject
 {
 private:
-    int bg_Pict_;
+    int bg_Pict_GameOver_;
     int drawX, drawY; //表示位置
     Text* pText;
     int finalScore_;  // 保存された最終スコア

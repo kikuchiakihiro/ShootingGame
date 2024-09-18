@@ -1,10 +1,4 @@
 
-//
-//　最終更新日：2023/10/20
-//
-
-
-
 #include <Windows.h>
 #include <stdlib.h>
 #include <assert.h>
@@ -21,6 +15,9 @@
 
 #pragma comment(lib,"Winmm.lib")
 
+bool isFullScreen = false;
+RECT windowRect = {};  // 元のウィンドウサイズを保存
+
 //定数宣言
 const char* WIN_CLASS_NAME = "SampleGame";	//ウィンドウクラス名
 
@@ -28,7 +25,7 @@ const char* WIN_CLASS_NAME = "SampleGame";	//ウィンドウクラス名
 //プロトタイプ宣言
 HWND InitApp(HINSTANCE hInstance, int screenWidth, int screenHeight, int nCmdShow);
 LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam);
-
+void ToggleFullScreen(HWND hWnd, bool& isFullScreen, RECT& windowRect);
 
 // エントリーポイント
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
@@ -121,6 +118,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
 
 				//入力（キーボード、マウス、コントローラー）情報を更新
 				Input::Update();
+
+				if (Input::IsKeyDown(DIK_F4)) {
+					// 画面表示切替
+					ToggleFullScreen(hWnd, isFullScreen, windowRect);
+				}
 
 				//全オブジェクトの更新処理
 				//ルートオブジェクトのUpdateを呼んだあと、自動的に子、孫のUpdateが呼ばれる
@@ -236,4 +238,29 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam)
 		return 0;
 	}
 	return DefWindowProc(hWnd, msg, wParam, lParam);
+}
+
+// フルスクリーンモードとウィンドウモードを切り替える関数
+void ToggleFullScreen(HWND hWnd, bool& isFullScreen, RECT& windowRect) {
+	if (isFullScreen) {
+		// ウィンドウモードに戻す
+		SetWindowLong(hWnd, GWL_STYLE, WS_OVERLAPPEDWINDOW);
+		SetWindowPos(hWnd, HWND_NOTOPMOST, windowRect.left, windowRect.top,
+			windowRect.right - windowRect.left,
+			windowRect.bottom - windowRect.top,
+			SWP_FRAMECHANGED | SWP_NOZORDER | SWP_SHOWWINDOW);
+	}
+	else {
+		// フルスクリーンに切り替え
+		GetWindowRect(hWnd, &windowRect);  // 元のウィンドウサイズを保存
+		SetWindowLong(hWnd, GWL_STYLE, WS_POPUP);
+		MONITORINFO mi = { sizeof(mi) };
+		if (GetMonitorInfo(MonitorFromWindow(hWnd, MONITOR_DEFAULTTOPRIMARY), &mi)) {
+			SetWindowPos(hWnd, HWND_TOP, mi.rcMonitor.left, mi.rcMonitor.top,
+				mi.rcMonitor.right - mi.rcMonitor.left,
+				mi.rcMonitor.bottom - mi.rcMonitor.top,
+				SWP_FRAMECHANGED | SWP_NOZORDER | SWP_SHOWWINDOW);
+		}
+	}
+	isFullScreen = !isFullScreen;  // フルスクリーン状態を反転
 }

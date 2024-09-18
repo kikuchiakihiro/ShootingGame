@@ -3,7 +3,7 @@
 class bg_ScoreBoard : public GameObject
 {
 private:
-    int bg_Pict_;
+    int bg_Pict_SB_;
    
 public:
     //コンストラクタ

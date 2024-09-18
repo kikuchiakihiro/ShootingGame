@@ -18,7 +18,6 @@ void Scene_Play::Initialize()
 	Instantiate<bg_Stage1>(this);
 	Instantiate<Chara_Player>(this);
 	Instantiate<Chara_Enemy>(this);
-	//Instantiate<Timer>(this);
 	Instantiate<Score>(this);
 }
 
@@ -32,4 +31,5 @@ void Scene_Play::Draw()
 
 void Scene_Play::Release()
 {
+	Image::AllRelease();
 }

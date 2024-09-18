@@ -3,7 +3,7 @@
 class bg_Title : public GameObject
 {
 private:
-    int bg_Pict_;
+    int bg_Pict_Title_;
     
 public:
     //コンストラクタ

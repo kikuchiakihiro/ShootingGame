@@ -47,4 +47,8 @@ public:
     void Shot();
 
     void OnCollision(GameObject* pTarget) override;
+
+    // 体力を取得するメソッド
+    // 残機に応じたスコア倍率を返す関数
+    float GetScoreMultiplier() const;
 };

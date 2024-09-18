@@ -6,7 +6,7 @@
 class bg_Clear : public GameObject
 {
 private:
-    int bg_Pict_;
+    int bg_Pict_Clear_;
     Text* pText;
     int finalScore_;  // 保存された最終スコア
     int drawX, drawY; //表示位置

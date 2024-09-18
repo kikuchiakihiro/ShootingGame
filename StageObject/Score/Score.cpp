@@ -35,10 +35,15 @@ void Score::Release()
     delete pText;
     pText = nullptr;
 }
-
-void Score::AddScore(int amount)
+void Score::AddScoreWin(int amount)
 {
     score_ += amount;
+}
+// スコアをプレイヤーの残機に基づいて加算
+void Score::AddScore(int amount, Chara_Player* player)
+{
+    float multiplier = player->GetScoreMultiplier();  // プレイヤーの残機に応じた倍率を取得
+    score_ += static_cast<int>(amount * multiplier);  // スコアに倍率を掛けて加算
 }
 
 void Score::StopCounting()

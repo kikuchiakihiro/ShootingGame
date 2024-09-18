@@ -4,10 +4,9 @@
 #include "../../Attack/EM_Bullet.h"
 #include "../../Score/Score.h"
 #include "../../Attack/Big_Bullet.h"
-#include <chrono>
 #include "../../../Engine/SceneManager.h"
 #include "../../Character/Chara_Player.h"
-
+#include <chrono>
 
 
 
@@ -15,7 +14,7 @@ Chara_Enemy::Chara_Enemy(GameObject* parent)
 	: GameObject(parent, "Chara_Enemy"), enemy_Pict_(-1)
 	, enemy_Health_(500), timeSinceLastShot_(0.0f), shootOffset_(0.1f), rengeAngle_(10)
 	, shootDuration_(3.0f), intervalTime_(1.0f), currentTime_(0.0f), attackState_(ATTACK)
-	, isInvincible_(false), invincibleDuration_(0.5f)
+	, isInvincible_(false), invincibleDuration_(0.5f),sceneChangeDelay_(3.0f), sceneChangeTimer_(0.0f), waitingForSceneChange_(false)
 
 {
 }
@@ -34,28 +33,15 @@ void Chara_Enemy::Initialize()
 
 	transform_.position_ = {-0.25f,0.4f,0.0f};
 	
-	// HealthBar のインスタンスを作成
+	
 	
 	Hp->SetMaxHealth(enemy_Health_);  // 最大体力を設定
 	Hp->Initialize();  // 初期化
+	
 }
 
 void Chara_Enemy::Update()
-{
-
-	// 無敵状態を監視し、時間が経過したら無敵を解除
-	if (isInvincible_)
-	{
-		auto currentTime = std::chrono::steady_clock::now();
-		std::chrono::duration<float> elapsedTime = currentTime - invincibleStartTime_;
-
-		if (elapsedTime.count() >= invincibleDuration_)
-		{
-			isInvincible_ = false;
-			Image::SetAlpha(enemy_Pict_, 255); // 無敵解除時に透明度を元に戻す
-		}
-	}
-	
+{	
 	rengeTime_++;
 	// 体力に応じて状態を変更
 	ChangeHealthState();
@@ -93,16 +79,7 @@ void Chara_Enemy::Update()
 
 void Chara_Enemy::Draw()
 {
-	if (isInvincible_)
-	{
-		// 無敵中はキャラクターの透明度を50%にする
-		Image::SetAlpha(enemy_Pict_, 128);
-	}
-	else
-	{
-		// 通常状態
-		Image::SetAlpha(enemy_Pict_, 255);
-	}
+	
 	Image::SetTransform(enemy_Pict_, transform_);
 	Image::Draw(enemy_Pict_);
 	// HealthBar を描画
@@ -111,48 +88,59 @@ void Chara_Enemy::Draw()
 
 void Chara_Enemy::Release()
 {
+	VFX::Release();
 }
 
 void Chara_Enemy::OnCollision(GameObject* pTarget)
 {
+	Chara_Player* player = dynamic_cast<Chara_Player*>(FindObject("Chara_Player"));
 	Score* score = dynamic_cast<Score*>(FindObject("Score"));
 	// 当たったときの処理
  	if (pTarget->GetObjectName() == "Bullet")
-	{ // 無敵状態なら何もしない
-		if (isInvincible_)
-		{
-			// 無敵時間が経過したかチェック
-			auto currentTime = std::chrono::steady_clock::now();
-			std::chrono::duration<float> elapsedTime = currentTime - invincibleStartTime_;
-			if (elapsedTime.count() >= invincibleDuration_)
-			{
-				isInvincible_ = false; // 無敵状態解除
-				Image::SetAlpha(enemy_Pict_, 255); // 透明度を元に戻す
-			}
-			
-		}
+	{ 
+		
+		//Effect();
+
 		enemy_Health_--;  // 体力を1減らす
-		isInvincible_ = true;
-		invincibleStartTime_ = std::chrono::steady_clock::now(); 
 		Hp->SetHealth(enemy_Health_);  // 体力ゲージを更新
 		// スコアを100点加算
-		
-		
-			score->AddScore(100);
+		score->AddScore(100,player);
 			
 		if (enemy_Health_ <= 0)  // 体力が0以下なら消滅
 		{
-			
-			score->AddScore(10000);
+			score->AddScore(10000,player);
 			score->StopCounting();
 			score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
 			this->KillMe();
 			SceneManager* pSceneManager = (SceneManager*)FindObject("SceneManager");
 			pSceneManager->ChangeScene(SCENE_ID_CLEARRESULT);
 		}
-
 		pTarget->KillMe();  // 弾も消滅
+		
 	}
+}
+
+void Chara_Enemy::Effect()
+{
+	// エフェクトデータの作成
+		
+	
+	Efedata.textureFileName = "Effect/flashC_R.png";
+	Efedata.position = XMFLOAT3(-1.8f, 1.8f, 0.0f);
+	Efedata.positionRnd = XMFLOAT3(0, 0, 0);  // エフェクトを弾が当たった位置で発生させる
+	Efedata.isBillBoard = false;
+	Efedata.rotate.x = 90;
+	Efedata.delay = 0;
+	Efedata.number = 1;
+	Efedata.lifeTime = 7;
+	Efedata.speed = 0;
+	Efedata.size = XMFLOAT2(3, 3);
+	Efedata.sizeRnd = XMFLOAT2(0, 0);
+	Efedata.scale = XMFLOAT2(1.f, 1.f);
+	Efedata.color = XMFLOAT4(1, 1, 1, 0.7f);
+
+	VFX::Start(Efedata);
+		
 }
 
 
@@ -282,7 +270,7 @@ void Chara_Enemy::WaveShoot()
 	// 発射タイミングの設定
 	if (rengeTime_ % 30 == 0)  // 例: 30フレームごとに発射
 	{
-		const int numBullets = 50;  // 発射する弾の数
+		const int numBullets = 40;  // 発射する弾の数
 		const float waveFrequency = 0.1f;  // 波の周波数（調整可能）
 		const float waveAmplitude = 1.0f;  // 波の振幅（調整可能）
 

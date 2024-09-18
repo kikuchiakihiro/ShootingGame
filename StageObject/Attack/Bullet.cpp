@@ -48,4 +48,5 @@ void Bullet::Draw()
 //ŠJ•ú
 void Bullet::Release()
 {
+
 }

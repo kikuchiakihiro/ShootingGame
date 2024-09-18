@@ -32,5 +32,6 @@ void Scene_ClearResult::Draw()
 
 void Scene_ClearResult::Release()
 {
+
 }
 

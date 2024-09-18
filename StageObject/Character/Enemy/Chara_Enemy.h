@@ -1,6 +1,7 @@
 #pragma once
 #include "../../../Engine/GameObject.h"
 #include "../../Gauge/Boss_HpGauge.h"
+#include "../../../Engine/VFX.h"
 #include <chrono> // タイマー用のライブラリ
 enum  EnemyState
 {
@@ -14,6 +15,8 @@ enum AttackState { ATTACK, INTERVAL } ; // 攻撃状態
 class Chara_Enemy : public GameObject
 {
 private:
+    EmitterData Efedata = {};
+
     int enemy_Pict_;
     int previousImage_;
     int enemy_Health_;  // 体力
@@ -37,7 +40,9 @@ private:
     std::chrono::steady_clock::time_point invincibleStartTime_; // 無敵状態の開始時間
     float invincibleDuration_; // 無敵時間（例: 2秒間）
 
-  
+    float sceneChangeDelay_; // シーンチェンジまでの遅延時間
+    float sceneChangeTimer_; // タイマー
+    bool waitingForSceneChange_; // シーンチェンジ待機フラグ
 
 public:
    
@@ -61,7 +66,7 @@ public:
 
     void OnCollision(GameObject* pTarget) override;
 
- 
+    void Effect();
 
     void ChangeHealthState();  // 体力に応じて状態を変更
 
@@ -80,5 +85,7 @@ public:
     void WaveShoot();
 
     void SpreadShoot();
+
+    
 };
 

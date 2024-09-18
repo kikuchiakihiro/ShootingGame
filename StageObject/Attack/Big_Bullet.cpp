@@ -63,4 +63,5 @@ void Big_Bullet::Draw()
 //ŠJ•ú
 void Big_Bullet::Release()
 {
+
 }

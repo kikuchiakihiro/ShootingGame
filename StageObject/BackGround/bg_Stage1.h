@@ -3,7 +3,7 @@
 class bg_Stage1 : public GameObject
 {
 private:
-    int bg_Pict_;
+    int bg_Pict_Stage_;
     float scrollSpeed_;     // スクロール速度
     float bgOffsetY_;       // 背景画像の縦オフセット
     int bgHeight_;          // 背景画像の高さ

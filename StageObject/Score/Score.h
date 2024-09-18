@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Engine/GameObject.h"
 #include "../../Engine/Text.h"
+#include "../../StageObject/Character/Chara_Player.h"
 #include <vector>
 #include <algorithm>
 class Score : public GameObject
@@ -35,8 +36,9 @@ public:
     // 開放
     void Release() override;
 
+    void AddScoreWin(int amount);
     // スコアを加算する関数
-    void AddScore(int amount);
+    void AddScore(int amount, Chara_Player* player);
 
     // スコアのカウントを停止する
     void StopCounting();

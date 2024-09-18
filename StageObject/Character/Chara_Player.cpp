@@ -28,7 +28,7 @@ void Chara_Player::Initialize()
     SphereCollider* collision = new SphereCollider(XMFLOAT3(0, 0, 0), 0.00005f);
     AddCollider(collision);
 
-    transform_.position_ = { -0.25f,-0.65f,0.0f };
+    transform_.position_ = { -0.25f,-0.85f,0.0f };
 }
 
 void Chara_Player::Update()
@@ -69,6 +69,7 @@ void Chara_Player::Draw()
 
 void Chara_Player::Release()
 {
+   
 }
 
 void Chara_Player::Move()
@@ -168,7 +169,7 @@ void Chara_Player::OnCollision(GameObject* pTarget)
     if (pTarget->GetObjectName() == "Chara_Enemy"|| pTarget->GetObjectName() == "EM_Bullet"
         || pTarget->GetObjectName() == "Big_Bullet")
     {
-        if (player_Hp <= 0)
+        if (player_Hp == 0)
         {
             score->StopCounting();
             score->SaveFinalScore();  // ゲーム終了時に最終スコアを保存
@@ -185,3 +186,19 @@ void Chara_Player::OnCollision(GameObject* pTarget)
     }
 }
 
+// 残機に応じたスコア倍率を返す関数
+float Chara_Player::GetScoreMultiplier() const
+{
+    if (player_Hp == 2)
+    {
+        return 1.5;  // 残機3の場合は1.3倍
+    }
+    else if (player_Hp == 1)
+    {
+        return 1.3;  // 残機2の場合は1.2倍
+    }
+    else
+    {
+        return 1.0;  // 残機1の場合は1.0倍
+    }
+}

@@ -48,6 +48,7 @@ void EM_Bullet::Draw()
 //ŠJ•ú
 void EM_Bullet::Release()
 {
+
 }
 
 void EM_Bullet::OnCollision(GameObject* pTarget)

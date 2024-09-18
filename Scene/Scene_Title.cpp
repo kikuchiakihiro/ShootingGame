@@ -1,9 +1,8 @@
 #include "Scene_Title.h"
-//#include "../../../../../StageObject/BackGround/bg_Title.h"
-//#include "../../../../../Engine/SceneManager.h"
 #include "../StageObject/BackGround/bg_Title.h"
 #include "../Engine/SceneManager.h"
 #include "../Engine/Input.h"
+#include "../Engine/Image.h"
 Scene_Title::Scene_Title(GameObject* parent)
 	: GameObject(parent, "Scene_Title")
 {
@@ -33,4 +32,5 @@ void Scene_Title::Draw()
 
 void Scene_Title::Release()
 {
+
 }

@@ -3,7 +3,7 @@
 
 // コンストラクタ
 Boss_HpGauge::Boss_HpGauge(GameObject* parent)
-    : GameObject(parent, "Boss_HpGauge"), maxHealth_(0), currentHealth_(0)  // 初期値を設定
+    : GameObject(parent, "Boss_HpGauge"),Boss_HpGauge_Pict_(-1), maxHealth_(0), currentHealth_(0)  // 初期値を設定
 {
 }
 
@@ -71,4 +71,5 @@ void Boss_HpGauge::SetHealth(int health)
 void Boss_HpGauge::Release()
 {
     // 必要に応じてリソースの開放を行う
+
 }

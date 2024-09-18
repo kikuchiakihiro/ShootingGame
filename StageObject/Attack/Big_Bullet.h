@@ -35,6 +35,7 @@ public:
         transform_.position_.y = _position.y;
         transform_.position_.z = _position.z;
     }
+    
     void SetAngle(float _angle) { angle_ = _angle; }
 
 };

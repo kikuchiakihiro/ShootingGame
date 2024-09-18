@@ -1,7 +1,7 @@
 #include "bg_Clear.h"
 #include "../../Engine/Image.h"
 bg_Clear::bg_Clear(GameObject* parent)
-	: GameObject(parent, "bg_Clear"), bg_Pict_(-1)
+	: GameObject(parent, "bg_Clear"), bg_Pict_Clear_(-1)
 {
 }
 
@@ -12,8 +12,8 @@ bg_Clear::~bg_Clear()
 void bg_Clear::Initialize()
 {
 	// 画像データのロード
-	bg_Pict_ = Image::Load("bg/bg_StageClear.png");
-	assert(bg_Pict_ >= 0);
+	bg_Pict_Clear_ = Image::Load("bg/bg_StageClear.png");
+	assert(bg_Pict_Clear_ >= 0);
 	pText = new Text;
 	pText->Initialize();
 
@@ -29,8 +29,8 @@ void bg_Clear::Update()
 
 void bg_Clear::Draw()
 {
-	Image::SetTransform(bg_Pict_, transform_);
-	Image::Draw(bg_Pict_);
+	Image::SetTransform(bg_Pict_Clear_, transform_);
+	Image::Draw(bg_Pict_Clear_);
 	pText->Draw(drawX + 100, drawY + 400, "Final Score");
 	pText->Draw(drawX + 300, drawY + 400, finalScore_);
 
@@ -45,4 +45,5 @@ void bg_Clear::Draw()
 
 void bg_Clear::Release()
 {
+
 }

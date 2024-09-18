@@ -2,7 +2,7 @@
 #include "../../Engine/Image.h"
 
 bg_Stage1::bg_Stage1(GameObject* parent)
-    : GameObject(parent, "bg_Stage1"), bg_Pict_(-1), scrollSpeed_(0.001f), bgOffsetY_(0.0f), bgHeight_(2)
+    : GameObject(parent, "bg_Stage1"), bg_Pict_Stage_(-1), scrollSpeed_(0.001f), bgOffsetY_(0.0f), bgHeight_(2)
 {
 }
 
@@ -13,8 +13,8 @@ bg_Stage1::~bg_Stage1()
 void bg_Stage1::Initialize()
 {
     // ‰æ‘œƒf[ƒ^‚Ìƒ[ƒh
-    bg_Pict_ = Image::Load("bg/bg_Stage1.png");
-    assert(bg_Pict_ >= 0);
+    bg_Pict_Stage_ = Image::Load("bg/bg_Stage1.png");
+    assert(bg_Pict_Stage_ >= 0);
 
     transform_.position_.x = -0.25f;
     transform_.scale_.x = 0.75f;
@@ -35,15 +35,16 @@ void bg_Stage1::Draw()
 {
     // 1–‡–Ú‚Ì”wŒi‰æ‘œ‚ğ•`‰æ
     transform_.position_.y = -bgOffsetY_;
-    Image::SetTransform(bg_Pict_, transform_);
-    Image::Draw(bg_Pict_);
+    Image::SetTransform(bg_Pict_Stage_, transform_);
+    Image::Draw(bg_Pict_Stage_);
 
     // 2–‡–Ú‚Ì”wŒi‰æ‘œ‚ğ•`‰æi1–‡–Ú‚Ì‰º‚É˜A‘±‚µ‚Ä•`‰æj
     transform_.position_.y = -bgOffsetY_ + bgHeight_;
-    Image::SetTransform(bg_Pict_, transform_);
-    Image::Draw(bg_Pict_);
+    Image::SetTransform(bg_Pict_Stage_, transform_);
+    Image::Draw(bg_Pict_Stage_);
 }
 
 void bg_Stage1::Release()
 {
+    
 }
